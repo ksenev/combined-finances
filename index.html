@@ -1899,6 +1899,100 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
       );
     }
 
+    // --- 15-year growth projection (illustrative, not financial advice) ---
+    // Contribution figures calibrated from Kal's actual data: $900/mo ETF, $300/mo
+    // crypto, and a staged super contribution derived by back-solving the real
+    // $0 -> $37,275.95 growth over 2.5 years at a 6.5% return, then stepped up to
+    // reflect expected resident -> registrar -> consultant career progression.
+    const PROJECTION_YEARS = 15;
+    const PROJECTION_CONTRIB = { etf: 900, crypto: 300 };
+    const PROJECTION_SCENARIOS = [
+      { key: "conservative", label: "Conservative", rEtf: 0.055, rCrypto: 0.0,  rSuper: 0.05,  superStages: [[1141, 2], [1312.15, 5], [2099.44, 8]] },
+      { key: "base",         label: "Base Case",     rEtf: 0.075, rCrypto: 0.06, rSuper: 0.065, superStages: [[1141, 2], [1430,    5], [2850,    8]] },
+      { key: "optimistic",   label: "Optimistic",    rEtf: 0.09,  rCrypto: 0.12, rSuper: 0.075, superStages: [[1141, 2], [1540.35, 5], [3388.77, 8]] },
+    ];
+
+    function fvLump(pv, r, yrs) { return pv * Math.pow(1 + r, yrs); }
+    function fvAnnuityMonthly(pmt, rAnnual, yrs) {
+      const r = rAnnual / 12, n = yrs * 12;
+      if (n === 0) return 0;
+      if (r === 0) return pmt * n;
+      return pmt * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+    }
+    function fvStagedSuper(balance, stages, r, totalYears) {
+      let fv = fvLump(balance, r, totalYears);
+      let elapsed = 0;
+      stages.forEach(([pmt, dur]) => {
+        const fvAtEnd = fvAnnuityMonthly(pmt, r, dur);
+        fv += fvLump(fvAtEnd, r, totalYears - (elapsed + dur));
+        elapsed += dur;
+      });
+      return fv;
+    }
+
+    function GrowthProjection({ data }) {
+      const latest = data[data.length - 1];
+      const pearlerNow = latest.pearler.total;
+      const cryptoNow = latest.swyftx.total + latest.trezor.total;
+      const superNow = latest.super?.total || 0;
+      const cashNow = latest.offsetCash?.total || 0;
+
+      const scenarioResults = PROJECTION_SCENARIOS.map((s) => {
+        const pearlerFV = fvLump(pearlerNow, s.rEtf, PROJECTION_YEARS) + fvAnnuityMonthly(PROJECTION_CONTRIB.etf, s.rEtf, PROJECTION_YEARS);
+        const cryptoFV = fvLump(cryptoNow, s.rCrypto, PROJECTION_YEARS) + fvAnnuityMonthly(PROJECTION_CONTRIB.crypto, s.rCrypto, PROJECTION_YEARS);
+        const superFV = fvStagedSuper(superNow, s.superStages, s.rSuper, PROJECTION_YEARS);
+        const cashFV = cashNow; // offset balance held flat — its benefit is interest saved, not investment growth
+        return { ...s, pearlerFV, cryptoFV, superFV, cashFV, totalFV: pearlerFV + cryptoFV + superFV + cashFV };
+      });
+
+      const rowDefs = [
+        { label: "Pearler (ETFs)", now: pearlerNow, key: "pearlerFV", color: PLATFORM_COLORS.Pearler.main },
+        { label: "Crypto", now: cryptoNow, key: "cryptoFV", color: PLATFORM_COLORS.Crypto.main },
+        { label: "Super", now: superNow, key: "superFV", color: PLATFORM_COLORS.Super.main },
+        { label: "Cash (offset)", now: cashNow, key: "cashFV", color: PLATFORM_COLORS.OffsetCash.main },
+      ];
+
+      return (
+        <div style={{ background: COLORS.card, border: `1px solid ${COLORS.border}`, borderRadius: 12, padding: 20, marginTop: 16 }}>
+          <div style={{ fontSize: 10, color: COLORS.textMuted, letterSpacing: 2, textTransform: "uppercase", marginBottom: 4 }}>
+            15-Year Growth Projection
+          </div>
+          <div style={{ fontSize: 10, color: COLORS.textMuted, marginBottom: 16, maxWidth: 720 }}>
+            Illustrative compounding estimate from the latest period ({latest.date}) — assumes $900/mo into ETFs, $300/mo into crypto, and super contributions stepping up from resident to registrar to consultant. Not financial advice.
+          </div>
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 560 }}>
+              <thead>
+                <tr style={{ borderBottom: `1px solid ${COLORS.border}` }}>
+                  {["Asset Class", "Current", ...scenarioResults.map((s) => s.label)].map((h, i) => (
+                    <th key={h} style={{ textAlign: i === 0 ? "left" : "right", padding: "8px 6px", fontSize: 9, color: COLORS.textMuted, fontWeight: 500, whiteSpace: "nowrap" }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {rowDefs.map((row) => (
+                  <tr key={row.label} style={{ borderBottom: `1px solid ${COLORS.border}` }}>
+                    <td style={{ padding: "8px 6px", fontSize: 11, fontWeight: 600, color: row.color }}>{row.label}</td>
+                    <td style={{ padding: "8px 6px", fontSize: 11, textAlign: "right", color: COLORS.textDim }}>{row.now > 0 ? fmt(row.now) : "—"}</td>
+                    {scenarioResults.map((s) => (
+                      <td key={s.key} style={{ padding: "8px 6px", fontSize: 11, textAlign: "right", color: COLORS.text }}>{fmt(s[row.key])}</td>
+                    ))}
+                  </tr>
+                ))}
+                <tr>
+                  <td style={{ padding: "8px 6px", fontSize: 12, fontWeight: 700, color: COLORS.text }}>Total</td>
+                  <td style={{ padding: "8px 6px", fontSize: 12, textAlign: "right", fontWeight: 700, color: COLORS.text }}>{fmt(pearlerNow + cryptoNow + superNow + cashNow)}</td>
+                  {scenarioResults.map((s) => (
+                    <td key={s.key + "-total"} style={{ padding: "8px 6px", fontSize: 12, textAlign: "right", fontWeight: 700, color: COLORS.accent }}>{fmt(s.totalFV)}</td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      );
+    }
+
     function InvestmentTracker() {
       const [data, setData] = useState(null);
       const [selectedQuarter, setSelectedQuarter] = useState(0);
@@ -2121,7 +2215,12 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
             )}
 
             {/* Compare */}
-            {view === "compare" && <QuarterlyChart data={data} />}
+            {view === "compare" && (
+              <>
+                <QuarterlyChart data={data} />
+                <GrowthProjection data={data} />
+              </>
+            )}
 
             {/* Pearler */}
             {view === "pearler" && (
