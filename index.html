@@ -46,6 +46,18 @@
 
   @media (max-width: 768px) {
     .shell-header { flex-direction: column; align-items: flex-start; }
+    .shell-tab { padding: 12px 16px; font-size: 0.82rem; }
+  }
+
+  /* Shared responsive helpers used by the Personal Cashflow and Investment
+     Portfolio panels (React inline-style grids) — !important is required
+     here because it's overriding an inline style attribute, not another
+     stylesheet rule. */
+  @media (max-width: 700px) {
+    .responsive-grid-2 { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 480px) {
+    html { font-size: 15px; } /* scales down the Property panel's rem-based text a touch on phones */
   }
 
 
@@ -74,7 +86,7 @@
     padding: 20px 32px;
     display: flex; align-items: center; justify-content: space-between;
   }#panel-property .header-left h1 { font-size: 1.4rem; font-weight: 700; color: var(--gold); letter-spacing: 0.03em; }#panel-property .header-left p { font-size: 0.85rem; color: var(--text2); margin-top: 2px; }#panel-property .header-right { display: flex; gap: 16px; align-items: center; }#panel-property .badge { background: var(--navy3); border: 1px solid var(--border); border-radius: 20px; padding: 4px 14px; font-size: 0.78rem; color: var(--text2); }#panel-property .badge span { color: var(--gold); font-weight: 600; }#panel-property .live-dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; display: inline-block; margin-right: 6px; animation: pulse 2s infinite; }#panel-property /* TABS */
-  .tabs { display: flex; gap: 0; background: var(--navy); border-bottom: 1px solid var(--border); padding: 0 32px; }#panel-property .tab { padding: 13px 22px; font-size: 0.875rem; cursor: pointer; color: var(--text2); border-bottom: 3px solid transparent; transition: all 0.2s; font-weight: 500; user-select: none; }#panel-property .tab:hover { color: var(--text); }#panel-property .tab.active { color: var(--gold); border-bottom-color: var(--gold); }#panel-property /* MAIN */
+  .tabs { display: flex; gap: 0; background: var(--navy); border-bottom: 1px solid var(--border); padding: 0 32px; overflow-x: auto; -webkit-overflow-scrolling: touch; }#panel-property .tab { padding: 13px 22px; font-size: 0.875rem; cursor: pointer; color: var(--text2); border-bottom: 3px solid transparent; transition: all 0.2s; font-weight: 500; user-select: none; white-space: nowrap; flex-shrink: 0; }#panel-property .tab:hover { color: var(--text); }#panel-property .tab.active { color: var(--gold); border-bottom-color: var(--gold); }#panel-property /* MAIN */
   .main { padding: 28px 32px; max-width: 1400px; margin: 0 auto; }#panel-property /* METRIC CARDS */
   .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }#panel-property .metric-card {
     background: var(--card); border: 1px solid var(--border); border-radius: 12px;
@@ -97,7 +109,7 @@
   .summary-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 20px; }#panel-property .summary-box { background: var(--navy2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; }#panel-property .summary-box .label { font-size: 0.73rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; }#panel-property .summary-box .value { font-size: 1.2rem; font-weight: 700; margin-top: 4px; }#panel-property /* CASHFLOW TOGGLE */
   .toggle-group { display: flex; background: var(--navy3); border-radius: 8px; padding: 3px; gap: 2px; }#panel-property .toggle-btn { padding: 5px 14px; border-radius: 6px; font-size: 0.78rem; cursor: pointer; color: var(--text2); transition: all 0.2s; user-select: none; }#panel-property .toggle-btn.active { background: var(--gold); color: var(--navy); font-weight: 600; }
 
-  @media (max-width: 768px) {#panel-property .charts-grid, #panel-property .charts-grid-3, #panel-property .loan-grid, #panel-property .prop-grid, #panel-property .summary-row { grid-template-columns: 1fr; }#panel-property .main { padding: 16px; }#panel-property .header { flex-direction: column; gap: 12px; }
+  @media (max-width: 768px) {#panel-property .charts-grid, #panel-property .charts-grid-3, #panel-property .loan-grid, #panel-property .prop-grid, #panel-property .summary-row { grid-template-columns: 1fr; }#panel-property .main { padding: 16px; }#panel-property .header { flex-direction: column; gap: 12px; }#panel-property .header-right { flex-wrap: wrap; }#panel-property .tabs { padding: 0 12px; }#panel-property .tab { padding: 12px 14px; font-size: 0.8rem; }
   }
 
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
@@ -814,7 +826,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
           {/* OVERVIEW */}
           {tab === "overview" && (
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              <div style={grid2Style}>
+              <div className="responsive-grid-2" style={grid2Style}>
                 <div style={cardStyle}>
                   <div style={chartTitleStyle}>Spend Breakdown</div>
                   <ResponsiveContainer width="100%" height={200}>
@@ -890,7 +902,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
               <Section title="💰 Income" color="#4ade80" total={totalIncome}>
                 {INCOME.map(k => <InputRow key={k} label={k} value={cur[k]} onChange={v => update(k, v)} />)}
               </Section>
-              <div style={grid2Style}>
+              <div className="responsive-grid-2" style={grid2Style}>
                 <Section title="🏠 Fixed Expenses" color="#e8b84b" total={fixedTotal}>
                   {FIXED.map(k => <InputRow key={k} label={k} value={cur[k]} onChange={v => update(k, v)} />)}
                 </Section>
@@ -899,7 +911,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 </Section>
               </div>
               <Section title="🍽️ Lifestyle" color="#f87171" total={lifestyleTotal}>
-                <div style={grid2Style}>
+                <div className="responsive-grid-2" style={grid2Style}>
                   <div>{LIFESTYLE.slice(0,4).map(k => <InputRow key={k} label={k} value={cur[k]} onChange={v => update(k, v)} />)}</div>
                   <div>{LIFESTYLE.slice(4).map(k => <InputRow key={k} label={k} value={cur[k]} onChange={v => update(k, v)} />)}</div>
                 </div>
@@ -945,7 +957,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 </ResponsiveContainer>
               </div>
 
-              <div style={grid2Style}>
+              <div className="responsive-grid-2" style={grid2Style}>
                 <div style={cardStyle}>
                   <div style={chartTitleStyle}>🍽️ Eating Out</div>
                   <MiniBarChart data={trendData} dataKey="Eating out" color="#f87171" />
@@ -956,7 +968,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 </div>
               </div>
 
-              <div style={grid2Style}>
+              <div className="responsive-grid-2" style={grid2Style}>
                 <div style={cardStyle}>
                   <div style={chartTitleStyle}>🛒 Groceries</div>
                   <MiniBarChart data={trendData} dataKey="Groceries" color="#2dd4bf" />
@@ -1886,7 +1898,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
           <div style={{ maxWidth: 1400, margin: "0 auto" }}>
 
             {/* Header */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: 8 }}>
               <div>
                 <div style={{ fontSize: 10, letterSpacing: 3, color: COLORS.textMuted, textTransform: "uppercase", marginBottom: 4 }}>Investment Tracker</div>
                 <h1 style={{ fontSize: 22, fontWeight: 700, margin: 0, color: COLORS.text }}>Kalana's Portfolio</h1>
@@ -1940,10 +1952,10 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
             </div>
 
             {/* Tab bar */}
-            <div style={{ display: "flex", gap: 2, marginBottom: 16, background: COLORS.card, borderRadius: 8, padding: 3, border: `1px solid ${COLORS.border}` }}>
+            <div style={{ display: "flex", gap: 2, marginBottom: 16, background: COLORS.card, borderRadius: 8, padding: 3, border: `1px solid ${COLORS.border}`, overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
               {tabs.map((t) => (
                 <button key={t.id} onClick={() => setView(t.id)} style={{
-                  flex: 1, padding: "8px 0", borderRadius: 6, border: "none",
+                  flex: "1 0 auto", padding: "8px 14px", borderRadius: 6, border: "none", whiteSpace: "nowrap",
                   background: view === t.id ? COLORS.accentDim : "transparent",
                   color: view === t.id ? COLORS.accent : COLORS.textDim,
                   cursor: "pointer", fontSize: 11, fontWeight: view === t.id ? 600 : 400, fontFamily: "inherit", transition: "all 0.2s",
@@ -1953,7 +1965,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
 
             {/* Overview */}
             {view === "overview" && (
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <div className="responsive-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 {isHistorical ? (
                   <div style={{ ...cardStyle, gridColumn: "1 / -1", textAlign: "center", padding: 32, color: COLORS.textDim }}>
                     <div style={{ fontSize: 13, marginBottom: 8 }}>Historical period — summary totals only</div>
@@ -2132,7 +2144,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
                     </div>
                   </div>
 
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                  <div className="responsive-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                     <div style={{ ...cardStyle, display: "flex", flexDirection: "column", alignItems: "center" }}>
                       <div style={{ fontSize: 10, color: COLORS.textMuted, letterSpacing: 2, textTransform: "uppercase", marginBottom: 14, alignSelf: "flex-start" }}>Market Exposure</div>
                       <DonutChart segments={superExposure.map((e) => ({ label: e.asset, value: e.value, color: e.color }))} />
@@ -2222,7 +2234,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
             {/* Allocation */}
             {view === "allocation" && (
               isHistorical ? (
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                <div className="responsive-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <div style={{ ...cardStyle, display: "flex", flexDirection: "column", alignItems: "center" }}>
                   <div style={{ fontSize: 10, color: COLORS.textMuted, letterSpacing: 2, textTransform: "uppercase", marginBottom: 14, alignSelf: "flex-start" }}>By Platform</div>
                   <DonutChart segments={platformSegments} />
@@ -2243,7 +2255,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
                 </div>
                 </div>
               ) : (
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                <div className="responsive-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <div style={{ ...cardStyle, display: "flex", flexDirection: "column", alignItems: "center" }}>
                   <div style={{ fontSize: 10, color: COLORS.textMuted, letterSpacing: 2, textTransform: "uppercase", marginBottom: 14, alignSelf: "flex-start" }}>By Platform</div>
                   <DonutChart segments={platformSegments} />
