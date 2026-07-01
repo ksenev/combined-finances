@@ -183,13 +183,13 @@
   <div class="metrics-grid">
     <div class="metric-card gold">
       <div class="metric-label">Monthly Rent</div>
-      <div class="metric-value gold">$2,680</div>
-      <div class="metric-sub">$670/week · $32,160/yr</div>
+      <div class="metric-value gold" id="monthly-rent-val">$2,680</div>
+      <div class="metric-sub" id="monthly-rent-sub">$670/week · $32,160/yr</div>
     </div>
     <div class="metric-card red">
       <div class="metric-label">Avg Monthly Shortfall</div>
-      <div class="metric-value negative">-$2,320</div>
-      <div class="metric-sub down">≈ -$27,840/year pre-tax</div>
+      <div class="metric-value negative" id="shortfall-val">-$2,320</div>
+      <div class="metric-sub down" id="shortfall-sub">≈ -$27,840/year pre-tax</div>
     </div>
     <div class="metric-card teal">
       <div class="metric-label">Estimated Equity</div>
@@ -197,19 +197,19 @@
       <div class="metric-sub">Based on 7% growth from purchase</div>
     </div>
     <div class="metric-card green">
-      <div class="metric-label">Capital Growth (7% p.a.)</div>
-      <div class="metric-value positive">$55,300</div>
-      <div class="metric-sub up">Year 1 projection</div>
+      <div class="metric-label" id="capital-growth-label">Capital Growth (7% p.a.)</div>
+      <div class="metric-value positive" id="capital-growth-val">$55,300</div>
+      <div class="metric-sub up" id="capital-growth-sub">Year 1 projection</div>
     </div>
     <div class="metric-card slate">
       <div class="metric-label">Total Loans</div>
-      <div class="metric-value" style="color:var(--slate2)">$826,600</div>
+      <div class="metric-value" style="color:var(--slate2)" id="total-loans-val">$826,600</div>
       <div class="metric-sub">LVR: <span id="lvr-val">104.6%</span> at purchase</div>
     </div>
     <div class="metric-card gold">
       <div class="metric-label">Gross Rental Yield</div>
-      <div class="metric-value gold">4.07%</div>
-      <div class="metric-sub">$32,160 ÷ $790,000</div>
+      <div class="metric-value gold" id="gross-yield-val">4.07%</div>
+      <div class="metric-sub" id="gross-yield-sub">$32,160 ÷ $790,000</div>
     </div>
   </div>
 
@@ -248,7 +248,7 @@
       <div class="info-row"><span class="info-key">Purchase Price</span><span class="info-val amount-gold">$790,000</span></div>
       <div class="info-row"><span class="info-key">Purchase Date</span><span class="info-val">23 May 2025</span></div>
       <div class="info-row"><span class="info-key">Settlement Date</span><span class="info-val">26 Jun 2025</span></div>
-      <div class="info-row"><span class="info-key">Est. Value (Year 1 @ 7%)</span><span class="info-val amount-positive">$845,300</span></div>
+      <div class="info-row"><span class="info-key">Est. Value (current, 7% p.a.)</span><span class="info-val amount-positive" id="info-est-value">$845,300</span></div>
     </div>
     <div class="info-block">
       <h3>Settlement Costs</h3>
@@ -318,7 +318,7 @@
   <div class="charts-grid-3" style="margin-bottom:20px">
     <div class="summary-box" style="background:var(--card); border-radius:12px; padding:18px">
       <div class="label">Avg Monthly Mortgage</div>
-      <div class="value amount-negative">$4,084</div>
+      <div class="value amount-negative" id="avg-mortgage-val">$4,084</div>
       <div style="font-size:0.75rem; color:var(--text2); margin-top:4px">Loan 1 P+I + Loan 2 IO (variable)</div>
     </div>
     <div class="summary-box" style="background:var(--card); border-radius:12px; padding:18px">
@@ -453,9 +453,9 @@
       <div class="loan-row"><span class="key">Annual Repayment</span><span class="val amount-negative">$13,836</span></div>
       <div class="loan-row"><span class="key">Monthly Interest (approx)</span><span class="val amount-gold">~$948</span></div>
       <div class="progress-wrap">
-        <div class="progress-label"><span>Principal Paid (~10 months)</span><span style="color:var(--green)">~$2,090 paid</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="background:var(--teal); width:1.1%"></div></div>
-        <div style="font-size:0.72rem; color:var(--text2); margin-top:4px">$192,510 remaining (est.)</div>
+        <div class="progress-label"><span id="loan1-progress-label">Principal Paid (~10 months)</span><span style="color:var(--green)" id="loan1-progress-paid">~$2,090 paid</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="loan1-progress-fill" style="background:var(--teal); width:1.1%"></div></div>
+        <div style="font-size:0.72rem; color:var(--text2); margin-top:4px" id="loan1-progress-remaining">$192,510 remaining (est.)</div>
       </div>
     </div>
 
@@ -470,9 +470,9 @@
       <div class="loan-row"><span class="key">Annual Interest</span><span class="val amount-gold">~$38,500 (fully deductible)</span></div>
       <div class="loan-row"><span class="key">Principal Balance</span><span class="val amount-negative">$632,000 (IO — no reduction)</span></div>
       <div class="progress-wrap">
-        <div class="progress-label"><span>Loan 2 vs Property Value</span><span style="color:var(--red)">74.8%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="background:var(--red); width:74.8%"></div></div>
-        <div style="font-size:0.72rem; color:var(--text2); margin-top:4px">$632,000 of $845,300 est. value</div>
+        <div class="progress-label"><span>Loan 2 vs Property Value</span><span style="color:var(--red)" id="loan2-progress-pct">74.8%</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="loan2-progress-fill" style="background:var(--red); width:74.8%"></div></div>
+        <div style="font-size:0.72rem; color:var(--text2); margin-top:4px" id="loan2-progress-sub">$632,000 of $845,300 est. value</div>
       </div>
     </div>
   </div>
@@ -1177,6 +1177,36 @@ const fmt = (v, abs=false) => {
   return '$' + Math.abs(n).toLocaleString('en-AU', {minimumFractionDigits:2, maximumFractionDigits:2});
 };
 const fmtSigned = v => (v >= 0 ? '+' : '-') + '$' + Math.abs(v).toLocaleString('en-AU', {minimumFractionDigits:2, maximumFractionDigits:2});
+const pctFmt = v => (v * 100).toFixed(1) + '%';
+
+// =====================================================================
+// PROPERTY FUNDAMENTALS — headline Overview metrics are computed from
+// these + the arrays above, not hardcoded, so they stay correct as time
+// passes and as new months are added (see buildHeadlineMetrics below).
+// =====================================================================
+const PURCHASE_PRICE = 790000;
+const CAPITAL_GROWTH_RATE = 0.07; // assumption, p.a.
+const PURCHASE_DATE = new Date('2025-05-23');
+const SETTLEMENT_DATE = new Date('2025-06-26');
+const WEEKLY_RENT = 670;
+const RENT_WEEKS_PER_YEAR = 48; // 4-week PM collection months x 12
+const LOAN1 = { amount: 194600, rate: 0.0584, termYears: 30 }; // P+I
+const LOAN2 = { amount: 632000, rate: 0.0609, termYears: 30 }; // IO — no principal reduction
+
+function monthsBetween(d1, d2) {
+  return Math.max(0, (d2.getFullYear() - d1.getFullYear()) * 12 + (d2.getMonth() - d1.getMonth()) - (d2.getDate() < d1.getDate() ? 1 : 0));
+}
+
+// Standard amortization remaining-balance formula for a P+I loan.
+function loan1RemainingBalance(monthsElapsed) {
+  const r = LOAN1.rate / 12;
+  const n = LOAN1.termYears * 12;
+  const k = Math.min(monthsElapsed, n);
+  if (k <= 0) return LOAN1.amount;
+  const monthlyPayment = LOAN1.amount * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+  const remaining = LOAN1.amount * Math.pow(1 + r, k) - monthlyPayment * ((Math.pow(1 + r, k) - 1) / r);
+  return Math.max(0, remaining);
+}
 
 // =====================================================================
 // TABS
@@ -1249,6 +1279,66 @@ function buildLoanTable() {
     `;
     tbody.appendChild(tr);
   });
+}
+
+// =====================================================================
+// HEADLINE OVERVIEW METRICS (Monthly Rent, Shortfall, Equity, Capital
+// Growth, Total Loans, LVR, Gross Yield, loan progress bars) — computed
+// live from PROPERTY FUNDAMENTALS + the actual arrays above, instead of
+// being retyped by hand each month.
+// =====================================================================
+function buildHeadlineMetrics() {
+  const today = new Date();
+  const yearsElapsed = (today - PURCHASE_DATE) / (365.25 * 24 * 3600 * 1000);
+  const currentEstValue = PURCHASE_PRICE * Math.pow(1 + CAPITAL_GROWTH_RATE, yearsElapsed);
+  const capitalGrowth = currentEstValue - PURCHASE_PRICE;
+
+  const monthsSinceSettlement = monthsBetween(SETTLEMENT_DATE, today);
+  const loan1Remaining = loan1RemainingBalance(monthsSinceSettlement);
+  const loan1PrincipalPaid = LOAN1.amount - loan1Remaining;
+  const totalLoansRemaining = loan1Remaining + LOAN2.amount;
+  const totalLoansOriginal = LOAN1.amount + LOAN2.amount;
+  const equity = currentEstValue - totalLoansRemaining;
+  const lvrAtPurchase = totalLoansOriginal / PURCHASE_PRICE;
+  const loan2VsValuePct = LOAN2.amount / currentEstValue;
+
+  const annualRent = WEEKLY_RENT * RENT_WEEKS_PER_YEAR;
+  const monthlyRent = annualRent / 12;
+  const grossYield = annualRent / PURCHASE_PRICE;
+
+  const avgMonthlyShortfall = totalNetActual / actualMonths;
+  const avgAnnualShortfall = avgMonthlyShortfall * 12;
+
+  // mortgages[0] is $0 pre-settlement — exclude it from the average
+  const avgMonthlyMortgage = mortgages.slice(1, actualMonths).reduce((a, b) => a + b, 0) / (actualMonths - 1);
+
+  const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  const setWidth = (id, pct) => { const el = document.getElementById(id); if (el) el.style.width = Math.min(100, Math.max(0, pct)).toFixed(1) + '%'; };
+
+  setText('current-value', fmt(currentEstValue));
+  setText('info-est-value', fmt(currentEstValue));
+  setText('monthly-rent-val', fmt(monthlyRent));
+  setText('monthly-rent-sub', `$${WEEKLY_RENT}/week · ${fmt(annualRent)}/yr`);
+  setText('shortfall-val', fmtSigned(avgMonthlyShortfall));
+  setText('shortfall-sub', `≈ ${fmtSigned(avgAnnualShortfall)}/year pre-tax`);
+  setText('equity-val', fmt(equity));
+  setText('capital-growth-label', `Capital Growth (${(CAPITAL_GROWTH_RATE * 100).toFixed(0)}% p.a.)`);
+  setText('capital-growth-val', fmt(capitalGrowth));
+  setText('capital-growth-sub', `${yearsElapsed.toFixed(1)} yrs since purchase`);
+  setText('total-loans-val', fmt(totalLoansRemaining));
+  setText('lvr-val', pctFmt(lvrAtPurchase));
+  setText('gross-yield-val', pctFmt(grossYield));
+  setText('gross-yield-sub', `${fmt(annualRent)} ÷ ${fmt(PURCHASE_PRICE)}`);
+  setText('avg-mortgage-val', fmt(avgMonthlyMortgage));
+
+  setText('loan1-progress-label', `Principal Paid (~${monthsSinceSettlement} months)`);
+  setText('loan1-progress-paid', `~${fmt(loan1PrincipalPaid)} paid`);
+  setWidth('loan1-progress-fill', loan1PrincipalPaid / LOAN1.amount * 100);
+  setText('loan1-progress-remaining', `${fmt(loan1Remaining)} remaining (est.)`);
+
+  setText('loan2-progress-pct', pctFmt(loan2VsValuePct));
+  setWidth('loan2-progress-fill', loan2VsValuePct * 100);
+  setText('loan2-progress-sub', `${fmt(LOAN2.amount)} of ${fmt(currentEstValue)} est. value`);
 }
 
 // =====================================================================
@@ -1521,6 +1611,7 @@ function buildLoanChart() {
 // =====================================================================
 // INIT
 // =====================================================================
+buildHeadlineMetrics();
 buildCashflowTable();
 buildLoanTable();
 buildCashflowChart();
@@ -1904,7 +1995,6 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
     // crypto, and a staged super contribution derived by back-solving the real
     // $0 -> $37,275.95 growth over 2.5 years at a 6.5% return, then stepped up to
     // reflect expected resident -> registrar -> consultant career progression.
-    const PROJECTION_YEARS = 15;
     const PROJECTION_CONTRIB = { etf: 900, crypto: 300 };
     const PROJECTION_SCENARIOS = [
       { key: "conservative", label: "Conservative", rEtf: 0.055, rCrypto: 0.0,  rSuper: 0.05,  superStages: [[1141, 2], [1312.15, 5], [2099.44, 8]] },
@@ -1922,15 +2012,21 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
     function fvStagedSuper(balance, stages, r, totalYears) {
       let fv = fvLump(balance, r, totalYears);
       let elapsed = 0;
-      stages.forEach(([pmt, dur]) => {
-        const fvAtEnd = fvAnnuityMonthly(pmt, r, dur);
-        fv += fvLump(fvAtEnd, r, totalYears - (elapsed + dur));
-        elapsed += dur;
-      });
+      for (const [pmt, dur] of stages) {
+        const remainingHorizon = totalYears - elapsed;
+        if (remainingHorizon <= 0) break;
+        const thisDur = Math.min(dur, remainingHorizon);
+        const fvAtEnd = fvAnnuityMonthly(pmt, r, thisDur);
+        fv += fvLump(fvAtEnd, r, totalYears - (elapsed + thisDur));
+        elapsed += thisDur;
+      }
       return fv;
     }
 
+    const PROJECTION_HORIZONS = [5, 10, 15];
+
     function GrowthProjection({ data }) {
+      const [horizon, setHorizon] = useState(15);
       const latest = data[data.length - 1];
       const pearlerNow = latest.pearler.total;
       const cryptoNow = latest.swyftx.total + latest.trezor.total;
@@ -1938,9 +2034,9 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
       const cashNow = latest.offsetCash?.total || 0;
 
       const scenarioResults = PROJECTION_SCENARIOS.map((s) => {
-        const pearlerFV = fvLump(pearlerNow, s.rEtf, PROJECTION_YEARS) + fvAnnuityMonthly(PROJECTION_CONTRIB.etf, s.rEtf, PROJECTION_YEARS);
-        const cryptoFV = fvLump(cryptoNow, s.rCrypto, PROJECTION_YEARS) + fvAnnuityMonthly(PROJECTION_CONTRIB.crypto, s.rCrypto, PROJECTION_YEARS);
-        const superFV = fvStagedSuper(superNow, s.superStages, s.rSuper, PROJECTION_YEARS);
+        const pearlerFV = fvLump(pearlerNow, s.rEtf, horizon) + fvAnnuityMonthly(PROJECTION_CONTRIB.etf, s.rEtf, horizon);
+        const cryptoFV = fvLump(cryptoNow, s.rCrypto, horizon) + fvAnnuityMonthly(PROJECTION_CONTRIB.crypto, s.rCrypto, horizon);
+        const superFV = fvStagedSuper(superNow, s.superStages, s.rSuper, horizon);
         const cashFV = cashNow; // offset balance held flat — its benefit is interest saved, not investment growth
         return { ...s, pearlerFV, cryptoFV, superFV, cashFV, totalFV: pearlerFV + cryptoFV + superFV + cashFV };
       });
@@ -1954,8 +2050,21 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
 
       return (
         <div style={{ background: COLORS.card, border: `1px solid ${COLORS.border}`, borderRadius: 12, padding: 20, marginTop: 16 }}>
-          <div style={{ fontSize: 10, color: COLORS.textMuted, letterSpacing: 2, textTransform: "uppercase", marginBottom: 4 }}>
-            15-Year Growth Projection
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8, marginBottom: 4 }}>
+            <div style={{ fontSize: 10, color: COLORS.textMuted, letterSpacing: 2, textTransform: "uppercase" }}>
+              Growth Projection
+            </div>
+            <div style={{ display: "flex", gap: 6 }}>
+              {PROJECTION_HORIZONS.map((h) => (
+                <button key={h} onClick={() => setHorizon(h)} style={{
+                  padding: "4px 10px", borderRadius: 6,
+                  border: `1px solid ${h === horizon ? COLORS.accent : COLORS.border}`,
+                  background: h === horizon ? COLORS.accentDim : "transparent",
+                  color: h === horizon ? COLORS.accent : COLORS.textDim,
+                  cursor: "pointer", fontSize: 11, fontFamily: "inherit",
+                }}>{h}Y</button>
+              ))}
+            </div>
           </div>
           <div style={{ fontSize: 10, color: COLORS.textMuted, marginBottom: 16, maxWidth: 720 }}>
             Illustrative compounding estimate from the latest period ({latest.date}) — assumes $900/mo into ETFs, $300/mo into crypto, and super contributions stepping up from resident to registrar to consultant. Not financial advice.
