@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Kalana & Sugandi — Finances Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +30,9 @@
   .shell-header {
     background: linear-gradient(135deg, var(--shell-navy) 0%, var(--shell-navy2) 100%);
     border-bottom: 2px solid var(--shell-gold);
-    padding: 18px 32px;
+    padding: calc(18px + env(safe-area-inset-top, 0px)) 32px 18px;
     display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    position: sticky; top: 0; z-index: 100;
   }
   .shell-header h1 { margin: 0; font-size: 1.3rem; font-weight: 700; color: var(--shell-gold); letter-spacing: 0.02em; }
   .shell-header .shell-sub { font-size: 0.8rem; color: var(--shell-text2); margin-top: 2px; }
@@ -659,6 +661,14 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
       const [loaded, setLoaded] = useState(false);
       const [showAdd, setShowAdd] = useState(false);
       const [newName, setNewName] = useState("");
+      const [isMobile, setIsMobile] = useState(false);
+
+      useEffect(() => {
+        const checkWidth = () => setIsMobile(window.innerWidth <= 700);
+        checkWidth();
+        window.addEventListener("resize", checkWidth);
+        return () => window.removeEventListener("resize", checkWidth);
+      }, []);
 
       useEffect(() => {
         try {
@@ -749,6 +759,49 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
         name: k, value: Math.round(cur[k] || 0), color: PIE_COLORS[i % PIE_COLORS.length]
       })).filter(d => d.value > 0).sort((a, b) => b.value - a.value);
 
+      // ── Conscious Spending Plan — target vs your trailing 6-month average ──
+      // "Fixed Costs" = FIXED + VARIABLE (rent/mortgage/insurance/utilities +
+      // groceries/fuel/health/transport — everything that isn't discretionary),
+      // "Guilt-Free Spending" = LIFESTYLE, "Investments" = Investing field,
+      // "Savings" = whatever's left over (can go negative in a deficit month).
+      // Always uses the most recent 6 months present, so this stays current as
+      // new months are added — not hardcoded to any specific period.
+      const cspMonths = months.slice(-6);
+      const cspAgg = cspMonths.reduce((acc, m) => {
+        const d = data[m];
+        const inc = INCOME.reduce((s, k) => s + (d[k] || 0), 0);
+        const fx  = FIXED.reduce((s, k) => s + (d[k] || 0), 0) + VARIABLE.reduce((s, k) => s + (d[k] || 0), 0);
+        const lf  = LIFESTYLE.reduce((s, k) => s + (d[k] || 0), 0);
+        const inv = d["Investing"] || 0;
+        acc.income += inc; acc.fixedCosts += fx; acc.guiltFree += lf; acc.investments += inv;
+        return acc;
+      }, { income: 0, fixedCosts: 0, guiltFree: 0, investments: 0 });
+      const cspN = cspMonths.length || 1;
+      const cspAvg = {
+        income:      cspAgg.income / cspN,
+        fixedCosts:  cspAgg.fixedCosts / cspN,
+        guiltFree:   cspAgg.guiltFree / cspN,
+        investments: cspAgg.investments / cspN,
+        savings:     (cspAgg.income - cspAgg.fixedCosts - cspAgg.guiltFree - cspAgg.investments) / cspN,
+      };
+      const cspPct = (v) => cspAvg.income > 0 ? v / cspAvg.income : 0;
+      const CSP_CATEGORIES = [
+        { key: "fixedCosts",  label: "Fixed Costs",         min: 0.50, max: 0.60, targetShare: 55,   color: "#f87171" },
+        { key: "guiltFree",   label: "Guilt-Free Spending",  min: 0.20, max: 0.35, targetShare: 27.5, color: "#e8b84b" },
+        { key: "savings",     label: "Savings",              min: 0.05, max: null, targetShare: 7.5,  color: "#2dd4bf" },
+        { key: "investments", label: "Investments",          min: 0.10, max: null, targetShare: 10,   color: "#4ade80" },
+      ];
+      const cspRows = CSP_CATEGORIES.map((c) => {
+        const actualValue = cspAvg[c.key];
+        const actualPct = cspPct(actualValue);
+        let status = "On track";
+        if (actualPct < c.min) status = "Under";
+        else if (c.max !== null && actualPct > c.max) status = "Over";
+        return { ...c, actualValue, actualPct, status };
+      });
+      const cspTargetPie = CSP_CATEGORIES.map((c) => ({ name: c.label, value: c.targetShare, color: c.color }));
+      const cspActualPie = cspRows.map((c) => ({ name: c.label, value: Math.max(0, Math.round(c.actualValue)), color: c.color }));
+
       const tabStyle = (active) => ({
         flex: 1, padding: "9px 0", borderRadius: 8, border: "none", cursor: "pointer",
         fontSize: 13, fontWeight: 700,
@@ -829,9 +882,9 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
               <div className="responsive-grid-2" style={grid2Style}>
                 <div style={cardStyle}>
                   <div style={chartTitleStyle}>Spend Breakdown</div>
-                  <ResponsiveContainer width="100%" height={200}>
+                  <ResponsiveContainer width="100%" height={isMobile ? 260 : 200}>
                     <PieChart>
-                      <Pie data={pieData} cx="50%" cy="50%" innerRadius={52} outerRadius={78} paddingAngle={3} dataKey="value">
+                      <Pie data={pieData} cx="50%" cy={isMobile ? "40%" : "50%"} innerRadius={52} outerRadius={78} paddingAngle={3} dataKey="value">
                         {pieData.map((e, i) => <Cell key={i} fill={e.color} />)}
                       </Pie>
                       <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: "#1e3251", border: "1px solid #2a4063", borderRadius: 8, color: "#e2e8f0" }} itemStyle={{ color: "#e2e8f0" }} />
@@ -892,6 +945,57 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                     <Bar dataKey="expenses" name="Total Outgoings" fill="#f87171" radius={[4,4,0,0]} />
                   </BarChart>
                 </ResponsiveContainer>
+              </div>
+
+              <div style={cardStyle}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4, flexWrap: "wrap", gap: 6 }}>
+                  <div style={chartTitleStyle}>Conscious Spending Plan — Target vs Your Average</div>
+                  <div style={{ fontSize: 10, color: "#94a3b8" }}>{cspMonths[0]} – {cspMonths[cspMonths.length - 1]} average ({cspMonths.length} mo)</div>
+                </div>
+                <div className="responsive-grid-2" style={grid2Style}>
+                  <div>
+                    <div style={{ fontSize: 11, color: "#94a3b8", textAlign: "center", marginBottom: 4 }}>Target</div>
+                    <ResponsiveContainer width="100%" height={180}>
+                      <PieChart>
+                        <Pie data={cspTargetPie} cx="50%" cy="50%" innerRadius={48} outerRadius={72} paddingAngle={3} dataKey="value">
+                          {cspTargetPie.map((e, i) => <Cell key={i} fill={e.color} />)}
+                        </Pie>
+                        <Tooltip formatter={(v) => `~${v}%`} contentStyle={{ background: "#1e3251", border: "1px solid #2a4063", borderRadius: 8, color: "#e2e8f0" }} itemStyle={{ color: "#e2e8f0" }} />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: 11, color: "#94a3b8", textAlign: "center", marginBottom: 4 }}>Your Average</div>
+                    <ResponsiveContainer width="100%" height={180}>
+                      <PieChart>
+                        <Pie data={cspActualPie} cx="50%" cy="50%" innerRadius={48} outerRadius={72} paddingAngle={3} dataKey="value">
+                          {cspActualPie.map((e, i) => <Cell key={i} fill={e.color} />)}
+                        </Pie>
+                        <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: "#1e3251", border: "1px solid #2a4063", borderRadius: 8, color: "#e2e8f0" }} itemStyle={{ color: "#e2e8f0" }} />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+                <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 6 }}>
+                  {cspRows.map((c) => (
+                    <div key={c.key} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: "1px solid #2a4063", flexWrap: "wrap", gap: 4 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 140 }}>
+                        <span style={{ width: 8, height: 8, borderRadius: 2, background: c.color, display: "inline-block" }} />
+                        <span style={{ fontSize: 12, color: "#e2e8f0" }}>{c.label}</span>
+                      </div>
+                      <span style={{ fontSize: 11, color: "#94a3b8" }}>Target {Math.round(c.min * 100)}%{c.max ? `–${Math.round(c.max * 100)}%` : "+"}</span>
+                      <span style={{ fontSize: 12, fontWeight: 600, color: "#e2e8f0" }}>{fmt(c.actualValue)}/mo ({Math.round(c.actualPct * 100)}%)</span>
+                      <span style={{
+                        fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 10, textTransform: "uppercase",
+                        background: c.status === "On track" ? "rgba(74,222,128,0.12)" : c.status === "Under" ? "rgba(248,113,113,0.12)" : "rgba(232,184,75,0.12)",
+                        color: c.status === "On track" ? "#4ade80" : c.status === "Under" ? "#f87171" : "#e8b84b",
+                      }}>{c.status}</span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ marginTop: 10, fontSize: 10, color: "#94a3b8" }}>
+                  Based on Ramit Sethi's Conscious Spending Plan (50–60% Fixed Costs · 20–35% Guilt-Free Spending · 5–10%+ Savings · 10%+ Investments). "Fixed Costs" here includes both your Fixed and Variable categories (necessities); "Savings" is whatever's left over after costs, guilt-free spending and investing each month — a negative figure means the household spent more than it earned that month.
+                </div>
               </div>
             </div>
           )}
@@ -995,14 +1099,14 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
               {lifestylePie.length > 0 && (
                 <div style={cardStyle}>
                   <div style={chartTitleStyle}>Lifestyle Breakdown — {selectedMonth}</div>
-                  <ResponsiveContainer width="100%" height={220}>
+                  <ResponsiveContainer width="100%" height={isMobile ? 400 : 220}>
                     <PieChart>
-                      <Pie data={lifestylePie} cx="40%" cy="50%" outerRadius={88} paddingAngle={2} dataKey="value"
+                      <Pie data={lifestylePie} cx="50%" cy={isMobile ? "36%" : "50%"} outerRadius={isMobile ? 96 : 88} paddingAngle={2} dataKey="value"
                         label={({ percent }) => percent > 0.05 ? `${Math.round(percent * 100)}%` : ""} labelLine={false}>
                         {lifestylePie.map((e, i) => <Cell key={i} fill={e.color} />)}
                       </Pie>
                       <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: "#1e3251", border: "1px solid #2a4063", borderRadius: 8, color: "#e2e8f0" }} itemStyle={{ color: "#e2e8f0" }} />
-                      <Legend layout="vertical" align="right" verticalAlign="middle" wrapperStyle={{ fontSize: 11, color: "#94a3b8" }}
+                      <Legend layout={isMobile ? "horizontal" : "vertical"} align={isMobile ? "center" : "right"} verticalAlign={isMobile ? "bottom" : "middle"} wrapperStyle={{ fontSize: 11, color: "#94a3b8" }}
                         formatter={(v, e) => `${v}: ${fmt(e.payload.value)}`} />
                     </PieChart>
                   </ResponsiveContainer>
