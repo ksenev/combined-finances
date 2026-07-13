@@ -17,12 +17,12 @@
 <style>
 
   :root {
-    --shell-navy: #0f1b2d;
-    --shell-navy2: #1a2e4a;
-    --shell-gold: #e8b84b;
-    --shell-border: #2a4063;
-    --shell-text: #e2e8f0;
-    --shell-text2: #94a3b8;
+    --shell-navy: #ffffff;
+    --shell-navy2: #f8fafc;
+    --shell-gold: #2563eb;
+    --shell-border: #e2e8f0;
+    --shell-text: #1e293b;
+    --shell-text2: #64748b;
   }
   html, body { margin: 0; padding: 0; }
   body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--shell-navy); }
@@ -66,21 +66,21 @@
 /* ===== Investment Property panel styles ===== */
 
   :root {
-    --navy: #0f1b2d;
-    --navy2: #1a2e4a;
-    --navy3: #243d5e;
-    --gold: #e8b84b;
-    --gold2: #f5d07a;
-    --teal: #2dd4bf;
-    --red: #f87171;
-    --green: #4ade80;
+    --navy: #ffffff;
+    --navy2: #f8fafc;
+    --navy3: #f1f5f9;
+    --gold: #2563eb;
+    --gold2: #0284c7;
+    --teal: #0891b2;
+    --red: #dc2626;
+    --green: #16a34a;
     --slate: #64748b;
-    --slate2: #94a3b8;
-    --card: #1e3251;
-    --border: #2a4063;
-    --text: #e2e8f0;
-    --text2: #94a3b8;
-    --bg: #0d1b2e;
+    --slate2: #64748b;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --text2: #64748b;
+    --bg: #f4f6f9;
   }#panel-property * { box-sizing: border-box; margin: 0; padding: 0; }#panel-property { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }#panel-property /* HEADER */
   .header {
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
@@ -101,11 +101,11 @@
     background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
   }#panel-property .chart-title { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }#panel-property .chart-sub { font-size: 0.75rem; color: var(--text2); margin-bottom: 16px; }#panel-property .chart-container { position: relative; }#panel-property /* LEGEND PILLS */
   .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }#panel-property .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.76rem; color: var(--text2); }#panel-property .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }#panel-property /* TABLE */
-  .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; overflow-x: auto; }#panel-property table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }#panel-property thead th { color: var(--text2); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600; }#panel-property tbody td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }#panel-property tbody tr:last-child td { border-bottom: none; }#panel-property tbody tr:hover { background: rgba(255,255,255,0.03); }#panel-property .amount-negative { color: var(--red); }#panel-property .amount-positive { color: var(--green); }#panel-property .amount-gold { color: var(--gold); }#panel-property .projected { color: var(--text2); font-style: italic; font-size: 0.8rem; }#panel-property .tag { display: inline-block; font-size: 0.68rem; padding: 2px 8px; border-radius: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }#panel-property .tag-projected { background: rgba(148,163,184,0.15); color: var(--slate2); }#panel-property .tag-actual { background: rgba(74,222,128,0.12); color: var(--green); }#panel-property .tag-deductible { background: rgba(232,184,75,0.15); color: var(--gold); }#panel-property /* SECTION PANELS */
+  .table-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; overflow-x: auto; }#panel-property table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }#panel-property thead th { color: var(--text2); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); font-weight: 600; }#panel-property tbody td { padding: 10px 12px; border-bottom: 1px solid rgba(15,23,42,0.05); }#panel-property tbody tr:last-child td { border-bottom: none; }#panel-property tbody tr:hover { background: rgba(15,23,42,0.03); }#panel-property .amount-negative { color: var(--red); }#panel-property .amount-positive { color: var(--green); }#panel-property .amount-gold { color: var(--gold); }#panel-property .projected { color: var(--text2); font-style: italic; font-size: 0.8rem; }#panel-property .tag { display: inline-block; font-size: 0.68rem; padding: 2px 8px; border-radius: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }#panel-property .tag-projected { background: rgba(100,116,139,0.15); color: var(--slate2); }#panel-property .tag-actual { background: rgba(22,163,74,0.12); color: var(--green); }#panel-property .tag-deductible { background: rgba(37,99,235,0.15); color: var(--gold); }#panel-property /* SECTION PANELS */
   .tab-panel { display: none; }#panel-property .tab-panel.active { display: block; }#panel-property /* LOAN CARDS */
-  .loan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }#panel-property .loan-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; }#panel-property .loan-card h3 { font-size: 0.9rem; color: var(--gold); margin-bottom: 14px; font-weight: 600; }#panel-property .loan-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; }#panel-property .loan-row:last-child { border-bottom: none; }#panel-property .loan-row .key { color: var(--text2); }#panel-property .loan-row .val { font-weight: 600; color: var(--text); }#panel-property /* PROGRESS BAR */
+  .loan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }#panel-property .loan-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; }#panel-property .loan-card h3 { font-size: 0.9rem; color: var(--gold); margin-bottom: 14px; font-weight: 600; }#panel-property .loan-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(15,23,42,0.05); font-size: 0.85rem; }#panel-property .loan-row:last-child { border-bottom: none; }#panel-property .loan-row .key { color: var(--text2); }#panel-property .loan-row .val { font-weight: 600; color: var(--text); }#panel-property /* PROGRESS BAR */
   .progress-wrap { margin-top: 16px; }#panel-property .progress-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text2); margin-bottom: 6px; }#panel-property .progress-bar { height: 8px; background: var(--navy3); border-radius: 4px; overflow: hidden; }#panel-property .progress-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }#panel-property /* PROPERTY OVERVIEW GRID */
-  .prop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }#panel-property .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }#panel-property .info-block h3 { font-size: 0.85rem; color: var(--gold); font-weight: 600; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }#panel-property .info-row { display: flex; justify-content: space-between; padding: 7px 0; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05); }#panel-property .info-row:last-child { border-bottom: none; }#panel-property .info-key { color: var(--text2); }#panel-property .info-val { font-weight: 600; }#panel-property /* TOOLTIP OVERRIDE */
+  .prop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }#panel-property .info-block { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }#panel-property .info-block h3 { font-size: 0.85rem; color: var(--gold); font-weight: 600; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }#panel-property .info-row { display: flex; justify-content: space-between; padding: 7px 0; font-size: 0.85rem; border-bottom: 1px solid rgba(15,23,42,0.05); }#panel-property .info-row:last-child { border-bottom: none; }#panel-property .info-key { color: var(--text2); }#panel-property .info-val { font-weight: 600; }#panel-property /* TOOLTIP OVERRIDE */
   canvas { cursor: crosshair; }#panel-property /* FILTER ROW */
   .filter-row { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }#panel-property .filter-btn { background: var(--navy3); border: 1px solid var(--border); border-radius: 20px; padding: 6px 16px; font-size: 0.8rem; color: var(--text2); cursor: pointer; transition: all 0.2s; }#panel-property .filter-btn:hover, #panel-property .filter-btn.active { background: var(--gold); color: var(--navy); font-weight: 600; border-color: var(--gold); }#panel-property .filter-label { font-size: 0.8rem; color: var(--text2); }#panel-property /* SUMMARY ROW */
   .summary-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 20px; }#panel-property .summary-box { background: var(--navy2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; }#panel-property .summary-box .label { font-size: 0.73rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; }#panel-property .summary-box .value { font-size: 1.2rem; font-weight: 700; margin-top: 4px; }#panel-property /* CASHFLOW TOGGLE */
@@ -117,12 +117,12 @@
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
 /* ===== Personal Cashflow panel styles ===== */
-#panel-personal * { box-sizing: border-box; margin: 0; padding: 0; }#panel-personal { background: #0d1b2e; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+#panel-personal * { box-sizing: border-box; margin: 0; padding: 0; }#panel-personal { background: #f4f6f9; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
   
 
 
 /* ===== Investment Portfolio panel styles ===== */
-#panel-portfolio *, #panel-portfolio *::before, #panel-portfolio *::after { box-sizing: border-box; margin: 0; padding: 0; }#panel-portfolio { background: #0d1b2e; }#panel-portfolio ::-webkit-scrollbar { width: 6px; height: 6px; }#panel-portfolio ::-webkit-scrollbar-track { background: #1e3251; }#panel-portfolio ::-webkit-scrollbar-thumb { background: #2a4063; border-radius: 3px; }
+#panel-portfolio *, #panel-portfolio *::before, #panel-portfolio *::after { box-sizing: border-box; margin: 0; padding: 0; }#panel-portfolio { background: #f4f6f9; }#panel-portfolio ::-webkit-scrollbar { width: 6px; height: 6px; }#panel-portfolio ::-webkit-scrollbar-track { background: #ffffff; }#panel-portfolio ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
   
 
 </style>
@@ -219,9 +219,9 @@
       <div class="chart-title">Monthly Cashflow — Income vs Expenses</div>
       <div class="chart-sub">Jun 2025 – Jun 2026 &nbsp;·&nbsp; Shaded bars = projected</div>
       <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#e8b84b"></div>Rent Income</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#f87171"></div>Total Expenses</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#2dd4bf"></div>Net Cashflow</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#2563eb"></div>Rent Income</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#dc2626"></div>Total Expenses</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#0891b2"></div>Net Cashflow</div>
       </div>
       <div class="chart-container"><canvas id="cashflowChart" height="240"></canvas></div>
     </div>
@@ -420,13 +420,13 @@
         <tr><td>Property Management Fee</td><td class="amount-gold">$221.08</td><td class="amount-gold">$2,652.96</td><td>Monthly</td><td><span class="tag tag-projected">Pending</span></td></tr>
         <tr><td>Admin Fee</td><td class="amount-gold">$8.80</td><td class="amount-gold">$105.60</td><td>Monthly</td><td><span class="tag tag-projected">Pending</span></td></tr>
         <tr><td>Council Rates</td><td class="amount-gold">$354.00</td><td class="amount-gold">$4,248.00</td><td>Monthly</td><td><span class="tag tag-projected">Pending</span></td></tr>
-        <tr style="background:rgba(232,184,75,0.05)"><td>Pre-settlement Inspection</td><td class="amount-gold">—</td><td class="amount-gold">$550.00</td><td>Once-off</td><td><span class="tag tag-actual">✓ Claimed</span></td></tr>
-        <tr style="background:rgba(232,184,75,0.05)"><td>Letting Fee</td><td class="amount-gold">—</td><td class="amount-gold">$737.00</td><td>Once-off</td><td><span class="tag tag-projected">Pending</span></td></tr>
-        <tr style="background:rgba(232,184,75,0.05)"><td>NBN Connection</td><td class="amount-gold">—</td><td class="amount-gold">$300.00</td><td>Once-off</td><td><span class="tag tag-projected">Pending</span></td></tr>
-        <tr style="background:rgba(232,184,75,0.05)"><td>Depreciation (D&amp;B Report)</td><td class="amount-gold">—</td><td class="amount-gold">TBC</td><td>Annual</td><td><span class="tag tag-projected">Not obtained</span></td></tr>
+        <tr style="background:rgba(37,99,235,0.05)"><td>Pre-settlement Inspection</td><td class="amount-gold">—</td><td class="amount-gold">$550.00</td><td>Once-off</td><td><span class="tag tag-actual">✓ Claimed</span></td></tr>
+        <tr style="background:rgba(37,99,235,0.05)"><td>Letting Fee</td><td class="amount-gold">—</td><td class="amount-gold">$737.00</td><td>Once-off</td><td><span class="tag tag-projected">Pending</span></td></tr>
+        <tr style="background:rgba(37,99,235,0.05)"><td>NBN Connection</td><td class="amount-gold">—</td><td class="amount-gold">$300.00</td><td>Once-off</td><td><span class="tag tag-projected">Pending</span></td></tr>
+        <tr style="background:rgba(37,99,235,0.05)"><td>Depreciation (D&amp;B Report)</td><td class="amount-gold">—</td><td class="amount-gold">TBC</td><td>Annual</td><td><span class="tag tag-projected">Not obtained</span></td></tr>
       </tbody>
     </table>
-    <div style="margin-top:14px; font-size:0.78rem; color:var(--text2); padding: 12px; background: rgba(232,184,75,0.08); border-radius:8px; border: 1px solid rgba(232,184,75,0.2)">
+    <div style="margin-top:14px; font-size:0.78rem; color:var(--text2); padding: 12px; background: rgba(37,99,235,0.08); border-radius:8px; border: 1px solid rgba(37,99,235,0.2)">
       💡 <strong style="color:var(--gold)">Tip:</strong> A depreciation (Div 40/43) report from a quantity surveyor could add significant additional deductions. Recommend organising this before lodging FY25-26 return.
     </div>
   </div>
@@ -578,7 +578,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
     const FIXED     = ["Mortgage repayments", "Rent", "Insurance", "Utilities", "Subscriptions", "Gym/fitness"];
     const VARIABLE  = ["Groceries", "Fuel", "Health", "Vehicle", "Work", "Parking/tolls/transport"];
     const LIFESTYLE = ["Eating out", "Coffee", "Alcohol", "Shopping", "Entertainment", "Holidays", "Gifts/donations", "Beauty/hair/laser"];
-    const PIE_COLORS = ["#e8b84b","#2dd4bf","#f87171","#f5d07a","#4ade80","#a78bfa","#fb923c","#38bdf8","#64748b","#84cc16"];
+    const PIE_COLORS = ["#2563eb","#0891b2","#dc2626","#0284c7","#16a34a","#4f46e5","#ea580c","#0284c7","#64748b","#4d7c0f"];
 
     const fmt = (n) => {
       const abs = Math.abs(Math.round(n));
@@ -588,10 +588,10 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
     const CustomTooltip = ({ active, payload, label }) => {
       if (!active || !payload?.length) return null;
       return (
-        <div style={{ background: "#1e3251", border: "1px solid #2a4063", borderRadius: 8, padding: "10px 14px", fontSize: 12, boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
-          <div style={{ fontWeight: 700, marginBottom: 4, color: "#e2e8f0" }}>{label}</div>
+        <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 8, padding: "10px 14px", fontSize: 12, boxShadow: "0 4px 12px rgba(15,23,42,0.06)" }}>
+          <div style={{ fontWeight: 700, marginBottom: 4, color: "#1e293b" }}>{label}</div>
           {payload.map((p, i) => (
-            <div key={i} style={{ color: p.color || "#94a3b8" }}>{p.name}: {fmt(p.value)}</div>
+            <div key={i} style={{ color: p.color || "#64748b" }}>{p.name}: {fmt(p.value)}</div>
           ))}
         </div>
       );
@@ -599,10 +599,10 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
 
     function SummaryCard({ label, value, color, sub }) {
       return (
-        <div style={{ background: "#1e3251", borderRadius: 12, padding: "14px 18px", flex: "1 1 140px", boxShadow: "0 1px 4px rgba(0,0,0,0.08)", borderTop: `3px solid ${color}` }}>
-          <div style={{ fontSize: 10, color: "#94a3b8", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>
+        <div style={{ background: "#ffffff", borderRadius: 12, padding: "14px 18px", flex: "1 1 140px", boxShadow: "0 1px 4px rgba(15,23,42,0.06)", borderTop: `3px solid ${color}` }}>
+          <div style={{ fontSize: 10, color: "#64748b", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>
           <div style={{ fontSize: 22, fontWeight: 800, color, marginTop: 4, lineHeight: 1 }}>{fmt(value)}</div>
-          {sub && <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 3 }}>{sub}</div>}
+          {sub && <div style={{ fontSize: 10, color: "#64748b", marginTop: 3 }}>{sub}</div>}
         </div>
       );
     }
@@ -610,10 +610,10 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
     function InputRow({ label, value, onChange }) {
       const [focused, setFocused] = useState(false);
       return (
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "5px 0", borderBottom: "1px solid #f8fafc" }}>
-          <label style={{ fontSize: 13, color: "#94a3b8", flex: 1, paddingRight: 8 }}>{label}</label>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "5px 0", borderBottom: "1px solid #e2e8f0" }}>
+          <label style={{ fontSize: 13, color: "#64748b", flex: 1, paddingRight: 8 }}>{label}</label>
           <div style={{ position: "relative" }}>
-            <span style={{ position: "absolute", left: 8, top: "50%", transform: "translateY(-50%)", color: "#94a3b8", fontSize: 13, pointerEvents: "none" }}>$</span>
+            <span style={{ position: "absolute", left: 8, top: "50%", transform: "translateY(-50%)", color: "#64748b", fontSize: 13, pointerEvents: "none" }}>$</span>
             <input
               type="number"
               value={value || ""}
@@ -621,7 +621,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
               placeholder="0"
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
-              style={{ width: 100, paddingLeft: 20, paddingRight: 6, paddingTop: 5, paddingBottom: 5, border: `1px solid ${focused ? "#e8b84b" : "#2a4063"}`, borderRadius: 6, fontSize: 13, textAlign: "right", outline: "none", background: "#0d1b2e", color: "#e2e8f0" }}
+              style={{ width: 100, paddingLeft: 20, paddingRight: 6, paddingTop: 5, paddingBottom: 5, border: `1px solid ${focused ? "#2563eb" : "#e2e8f0"}`, borderRadius: 6, fontSize: 13, textAlign: "right", outline: "none", background: "#f4f6f9", color: "#1e293b" }}
             />
           </div>
         </div>
@@ -630,7 +630,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
 
     function Section({ title, color, children, total }) {
       return (
-        <div style={{ background: "#1e3251", borderRadius: 12, padding: "14px 16px", boxShadow: "0 1px 4px rgba(0,0,0,0.08)" }}>
+        <div style={{ background: "#ffffff", borderRadius: 12, padding: "14px 16px", boxShadow: "0 1px 4px rgba(15,23,42,0.06)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10, paddingBottom: 8, borderBottom: `2px solid ${color}20` }}>
             <div style={{ fontSize: 12, fontWeight: 800, color, textTransform: "uppercase", letterSpacing: "0.06em" }}>{title}</div>
             <div style={{ fontSize: 13, fontWeight: 800, color }}>{fmt(total)}</div>
@@ -644,9 +644,9 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
       return (
         <ResponsiveContainer width="100%" height={120}>
           <BarChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: 4 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-            <XAxis dataKey="month" tick={{ fontSize: 10, fill: "#94a3b8" }} axisLine={false} tickLine={false} />
-            <YAxis tick={{ fontSize: 10, fill: "#94a3b8" }} tickFormatter={v => v >= 1000 ? `$${(v/1000).toFixed(1)}k` : `$${v}`} axisLine={false} tickLine={false} width={38} />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(15,23,42,0.06)" vertical={false} />
+            <XAxis dataKey="month" tick={{ fontSize: 10, fill: "#64748b" }} axisLine={false} tickLine={false} />
+            <YAxis tick={{ fontSize: 10, fill: "#64748b" }} tickFormatter={v => v >= 1000 ? `$${(v/1000).toFixed(1)}k` : `$${v}`} axisLine={false} tickLine={false} width={38} />
             <Tooltip content={<CustomTooltip />} />
             <Bar dataKey={dataKey} name={dataKey} fill={color} radius={[4, 4, 0, 0]} />
           </BarChart>
@@ -749,10 +749,10 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
       });
 
       const pieData = [
-        { name: "Fixed",     value: Math.round(fixedTotal),     color: "#e8b84b" },
-        { name: "Variable",  value: Math.round(variableTotal),  color: "#2dd4bf" },
-        { name: "Lifestyle", value: Math.round(lifestyleTotal), color: "#f87171" },
-        { name: "Investing", value: Math.round(invested),       color: "#f5d07a" },
+        { name: "Fixed",     value: Math.round(fixedTotal),     color: "#2563eb" },
+        { name: "Variable",  value: Math.round(variableTotal),  color: "#0891b2" },
+        { name: "Lifestyle", value: Math.round(lifestyleTotal), color: "#dc2626" },
+        { name: "Investing", value: Math.round(invested),       color: "#0284c7" },
       ].filter(d => d.value > 0);
 
       const lifestylePie = LIFESTYLE.map((k, i) => ({
@@ -786,10 +786,10 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
       };
       const cspPct = (v) => cspAvg.income > 0 ? v / cspAvg.income : 0;
       const CSP_CATEGORIES = [
-        { key: "fixedCosts",  label: "Fixed Costs",         min: 0.50, max: 0.60, targetShare: 55,   color: "#f87171" },
-        { key: "guiltFree",   label: "Guilt-Free Spending",  min: 0.20, max: 0.35, targetShare: 27.5, color: "#e8b84b" },
-        { key: "savings",     label: "Savings",              min: 0.05, max: null, targetShare: 7.5,  color: "#2dd4bf" },
-        { key: "investments", label: "Investments",          min: 0.10, max: null, targetShare: 10,   color: "#4ade80" },
+        { key: "fixedCosts",  label: "Fixed Costs",         min: 0.50, max: 0.60, targetShare: 55,   color: "#dc2626" },
+        { key: "guiltFree",   label: "Guilt-Free Spending",  min: 0.20, max: 0.35, targetShare: 27.5, color: "#2563eb" },
+        { key: "savings",     label: "Savings",              min: 0.05, max: null, targetShare: 7.5,  color: "#0891b2" },
+        { key: "investments", label: "Investments",          min: 0.10, max: null, targetShare: 10,   color: "#16a34a" },
       ];
       const cspRows = CSP_CATEGORIES.map((c) => {
         const actualValue = cspAvg[c.key];
@@ -805,36 +805,36 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
       const tabStyle = (active) => ({
         flex: 1, padding: "9px 0", borderRadius: 8, border: "none", cursor: "pointer",
         fontSize: 13, fontWeight: 700,
-        background: active ? "#e8b84b" : "transparent",
-        color: active ? "#0f1b2d" : "#94a3b8",
+        background: active ? "#2563eb" : "transparent",
+        color: active ? "#ffffff" : "#64748b",
       });
 
       const monthBtnStyle = (active) => ({
         padding: "5px 14px", borderRadius: 20,
-        border: active ? "2px solid #e8b84b" : "1px solid #2a4063",
+        border: active ? "2px solid #2563eb" : "1px solid #e2e8f0",
         cursor: "pointer", fontSize: 12, fontWeight: 700,
-        background: active ? "#e8b84b" : "#1e3251",
-        color: active ? "#0f1b2d" : "#94a3b8",
+        background: active ? "#2563eb" : "#ffffff",
+        color: active ? "#ffffff" : "#64748b",
         whiteSpace: "nowrap"
       });
 
-      const cardStyle = { background: "#1e3251", border: "1px solid #2a4063", borderRadius: 12, padding: "14px 16px", boxShadow: "0 1px 4px rgba(0,0,0,0.25)" };
-      const chartTitleStyle = { fontSize: 12, fontWeight: 800, color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 10 };
+      const cardStyle = { background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 12, padding: "14px 16px", boxShadow: "0 1px 4px rgba(15,23,42,0.06)" };
+      const chartTitleStyle = { fontSize: 12, fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 10 };
       const grid2Style = { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 };
 
       return (
-        <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", background: "#0d1b2e", minHeight: "100vh", padding: 16 }}>
+        <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", background: "#f4f6f9", minHeight: "100vh", padding: 16 }}>
 
           {/* Header */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
             <div>
-              <h1 style={{ margin: 0, fontSize: 20, fontWeight: 900, color: "#e2e8f0" }}>💸 Monthly Cashflow</h1>
-              <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 2 }}>Kalana & Sugandi · {selectedMonth}</div>
+              <h1 style={{ margin: 0, fontSize: 20, fontWeight: 900, color: "#1e293b" }}>💸 Monthly Cashflow</h1>
+              <div style={{ fontSize: 11, color: "#64748b", marginTop: 2 }}>Kalana & Sugandi · {selectedMonth}</div>
             </div>
             <div style={{
-              background: savingsRate >= 20 ? "rgba(74,222,128,0.12)" : savingsRate >= 10 ? "rgba(232,184,75,0.12)" : "rgba(248,113,113,0.12)",
+              background: savingsRate >= 20 ? "rgba(22,163,74,0.12)" : savingsRate >= 10 ? "rgba(37,99,235,0.12)" : "rgba(220,38,38,0.12)",
               borderRadius: 20, padding: "5px 14px", fontSize: 12, fontWeight: 800,
-              color: savingsRate >= 20 ? "#4ade80" : savingsRate >= 10 ? "#e8b84b" : "#f87171"
+              color: savingsRate >= 20 ? "#16a34a" : savingsRate >= 10 ? "#2563eb" : "#dc2626"
             }}>
               {savingsRate}% savings rate
             </div>
@@ -846,7 +846,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
               <button key={m} style={monthBtnStyle(m === selectedMonth)} onClick={() => setSelectedMonth(m)}>{m}</button>
             ))}
             {!showAdd ? (
-              <button onClick={() => setShowAdd(true)} style={{ padding: "5px 14px", borderRadius: 20, border: "1px dashed #e8b84b", cursor: "pointer", fontSize: 12, fontWeight: 700, background: "transparent", color: "#e8b84b" }}>
+              <button onClick={() => setShowAdd(true)} style={{ padding: "5px 14px", borderRadius: 20, border: "1px dashed #2563eb", cursor: "pointer", fontSize: 12, fontWeight: 700, background: "transparent", color: "#2563eb" }}>
                 + Add Month
               </button>
             ) : (
@@ -854,7 +854,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 <input autoFocus value={newName} onChange={e => setNewName(e.target.value)}
                   onKeyDown={e => e.key === "Enter" && addMonth()}
                   placeholder="May 2026"
-                  style={{ padding: "5px 12px", border: "1px solid #e8b84b", borderRadius: 20, fontSize: 12, outline: "none", width: 90, background: "#1e3251", color: "#e2e8f0" }} />
+                  style={{ padding: "5px 12px", border: "1px solid #2563eb", borderRadius: 20, fontSize: 12, outline: "none", width: 90, background: "#ffffff", color: "#1e293b" }} />
                 <button onClick={addMonth} style={{ ...monthBtnStyle(true), padding: "5px 12px" }}>Add</button>
                 <button onClick={() => { setShowAdd(false); setNewName(""); }} style={{ ...monthBtnStyle(false), padding: "5px 10px" }}>✕</button>
               </div>
@@ -863,14 +863,14 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
 
           {/* Summary Cards */}
           <div style={{ display: "flex", gap: 10, marginBottom: 14, flexWrap: "wrap" }}>
-            <SummaryCard label="Total Income"    value={totalIncome}   color="#4ade80" sub="Salary + IP1 + Other" />
-            <SummaryCard label="Total Expenses"  value={totalExpenses} color="#f87171" sub="Excl. investing" />
-            <SummaryCard label="Net Cashflow"    value={netCashflow}   color={netCashflow >= 0 ? "#4ade80" : "#f87171"} sub="After all outgoings" />
-            <SummaryCard label="Invested"        value={invested}      color="#f5d07a" sub="Pearler + BTC DCA" />
+            <SummaryCard label="Total Income"    value={totalIncome}   color="#16a34a" sub="Salary + IP1 + Other" />
+            <SummaryCard label="Total Expenses"  value={totalExpenses} color="#dc2626" sub="Excl. investing" />
+            <SummaryCard label="Net Cashflow"    value={netCashflow}   color={netCashflow >= 0 ? "#16a34a" : "#dc2626"} sub="After all outgoings" />
+            <SummaryCard label="Invested"        value={invested}      color="#0284c7" sub="Pearler + BTC DCA" />
           </div>
 
           {/* Tabs */}
-          <div style={{ display: "flex", gap: 3, background: "#1e3251", borderRadius: 10, padding: 4, boxShadow: "0 1px 3px rgba(0,0,0,0.08)", marginBottom: 14 }}>
+          <div style={{ display: "flex", gap: 3, background: "#ffffff", borderRadius: 10, padding: 4, boxShadow: "0 1px 3px rgba(15,23,42,0.06)", marginBottom: 14 }}>
             {[["overview","📊 Overview"],["data","✏️ Edit Data"],["charts","📈 Charts"]].map(([id, label]) => (
               <button key={id} style={tabStyle(tab === id)} onClick={() => setTab(id)}>{label}</button>
             ))}
@@ -887,8 +887,8 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                       <Pie data={pieData} cx="50%" cy={isMobile ? "40%" : "50%"} innerRadius={52} outerRadius={78} paddingAngle={3} dataKey="value">
                         {pieData.map((e, i) => <Cell key={i} fill={e.color} />)}
                       </Pie>
-                      <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: "#1e3251", border: "1px solid #2a4063", borderRadius: 8, color: "#e2e8f0" }} itemStyle={{ color: "#e2e8f0" }} />
-                      <Legend formatter={(v, e) => `${v}: ${fmt(e.payload.value)}`} wrapperStyle={{ fontSize: 11, color: "#94a3b8" }} />
+                      <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 8, color: "#1e293b" }} itemStyle={{ color: "#1e293b" }} />
+                      <Legend formatter={(v, e) => `${v}: ${fmt(e.payload.value)}`} wrapperStyle={{ fontSize: 11, color: "#64748b" }} />
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
@@ -896,12 +896,12 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                   <div style={chartTitleStyle}>Net Cashflow Trend</div>
                   <ResponsiveContainer width="100%" height={200}>
                     <BarChart data={trendData} margin={{ top: 4, right: 8, bottom: 0, left: 4 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-                      <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#94a3b8" }} axisLine={false} tickLine={false} />
-                      <YAxis tick={{ fontSize: 11, fill: "#94a3b8" }} tickFormatter={v => `$${(v/1000).toFixed(1)}k`} axisLine={false} tickLine={false} width={42} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(15,23,42,0.06)" vertical={false} />
+                      <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#64748b" }} axisLine={false} tickLine={false} />
+                      <YAxis tick={{ fontSize: 11, fill: "#64748b" }} tickFormatter={v => `$${(v/1000).toFixed(1)}k`} axisLine={false} tickLine={false} width={42} />
                       <Tooltip content={<CustomTooltip />} />
                       <Bar dataKey="net" name="Net Cashflow" radius={[5,5,0,0]}>
-                        {trendData.map((e, i) => <Cell key={i} fill={e.net >= 0 ? "#4ade80" : "#f87171"} />)}
+                        {trendData.map((e, i) => <Cell key={i} fill={e.net >= 0 ? "#16a34a" : "#dc2626"} />)}
                       </Bar>
                     </BarChart>
                   </ResponsiveContainer>
@@ -918,14 +918,14 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                       </div>
                     ))}
                   </div>
-                  <div style={{ marginTop: 10, fontSize: 11, color: "#94a3b8", display: "flex", gap: 20, flexWrap: "wrap" }}>
+                  <div style={{ marginTop: 10, fontSize: 11, color: "#64748b", display: "flex", gap: 20, flexWrap: "wrap" }}>
                     <span>Lifestyle: <strong style={{ color: "#475569" }}>{fmt(lifestyleTotal)}</strong></span>
-                    <span>% of income: <strong style={{ color: lifestyleTotal / totalIncome > 0.4 ? "#f87171" : "#4ade80" }}>{totalIncome ? Math.round(lifestyleTotal / totalIncome * 100) : 0}%</strong></span>
+                    <span>% of income: <strong style={{ color: lifestyleTotal / totalIncome > 0.4 ? "#dc2626" : "#16a34a" }}>{totalIncome ? Math.round(lifestyleTotal / totalIncome * 100) : 0}%</strong></span>
                     <span>Fixed: <strong style={{ color: "#475569" }}>{fmt(fixedTotal)}</strong></span>
                     <span>Variable: <strong style={{ color: "#475569" }}>{fmt(variableTotal)}</strong></span>
                   </div>
                   {cur.Notes && (
-                    <div style={{ marginTop: 8, fontSize: 12, color: "#94a3b8", background: "rgba(232,184,75,0.08)", borderRadius: 8, padding: "8px 12px", border: "1px solid rgba(232,184,75,0.2)" }}>
+                    <div style={{ marginTop: 8, fontSize: 12, color: "#64748b", background: "rgba(37,99,235,0.08)", borderRadius: 8, padding: "8px 12px", border: "1px solid rgba(37,99,235,0.2)" }}>
                       📝 {cur.Notes}
                     </div>
                   )}
@@ -936,13 +936,13 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 <div style={chartTitleStyle}>Income vs Total Outgoings</div>
                 <ResponsiveContainer width="100%" height={180}>
                   <BarChart data={trendData} margin={{ top: 4, right: 8, bottom: 0, left: 4 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-                    <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#94a3b8" }} axisLine={false} tickLine={false} />
-                    <YAxis tick={{ fontSize: 11, fill: "#94a3b8" }} tickFormatter={v => `$${(v/1000).toFixed(0)}k`} axisLine={false} tickLine={false} width={38} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(15,23,42,0.06)" vertical={false} />
+                    <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#64748b" }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 11, fill: "#64748b" }} tickFormatter={v => `$${(v/1000).toFixed(0)}k`} axisLine={false} tickLine={false} width={38} />
                     <Tooltip content={<CustomTooltip />} />
-                    <Legend wrapperStyle={{ fontSize: 11, color: "#94a3b8" }} />
-                    <Bar dataKey="income"   name="Income"          fill="#4ade80" radius={[4,4,0,0]} />
-                    <Bar dataKey="expenses" name="Total Outgoings" fill="#f87171" radius={[4,4,0,0]} />
+                    <Legend wrapperStyle={{ fontSize: 11, color: "#64748b" }} />
+                    <Bar dataKey="income"   name="Income"          fill="#16a34a" radius={[4,4,0,0]} />
+                    <Bar dataKey="expenses" name="Total Outgoings" fill="#dc2626" radius={[4,4,0,0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -950,50 +950,50 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
               <div style={cardStyle}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4, flexWrap: "wrap", gap: 6 }}>
                   <div style={chartTitleStyle}>Conscious Spending Plan — Target vs Your Average</div>
-                  <div style={{ fontSize: 10, color: "#94a3b8" }}>{cspMonths[0]} – {cspMonths[cspMonths.length - 1]} average ({cspMonths.length} mo)</div>
+                  <div style={{ fontSize: 10, color: "#64748b" }}>{cspMonths[0]} – {cspMonths[cspMonths.length - 1]} average ({cspMonths.length} mo)</div>
                 </div>
                 <div className="responsive-grid-2" style={grid2Style}>
                   <div>
-                    <div style={{ fontSize: 11, color: "#94a3b8", textAlign: "center", marginBottom: 4 }}>Target</div>
+                    <div style={{ fontSize: 11, color: "#64748b", textAlign: "center", marginBottom: 4 }}>Target</div>
                     <ResponsiveContainer width="100%" height={180}>
                       <PieChart>
                         <Pie data={cspTargetPie} cx="50%" cy="50%" innerRadius={48} outerRadius={72} paddingAngle={3} dataKey="value">
                           {cspTargetPie.map((e, i) => <Cell key={i} fill={e.color} />)}
                         </Pie>
-                        <Tooltip formatter={(v) => `~${v}%`} contentStyle={{ background: "#1e3251", border: "1px solid #2a4063", borderRadius: 8, color: "#e2e8f0" }} itemStyle={{ color: "#e2e8f0" }} />
+                        <Tooltip formatter={(v) => `~${v}%`} contentStyle={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 8, color: "#1e293b" }} itemStyle={{ color: "#1e293b" }} />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
                   <div>
-                    <div style={{ fontSize: 11, color: "#94a3b8", textAlign: "center", marginBottom: 4 }}>Your Average</div>
+                    <div style={{ fontSize: 11, color: "#64748b", textAlign: "center", marginBottom: 4 }}>Your Average</div>
                     <ResponsiveContainer width="100%" height={180}>
                       <PieChart>
                         <Pie data={cspActualPie} cx="50%" cy="50%" innerRadius={48} outerRadius={72} paddingAngle={3} dataKey="value">
                           {cspActualPie.map((e, i) => <Cell key={i} fill={e.color} />)}
                         </Pie>
-                        <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: "#1e3251", border: "1px solid #2a4063", borderRadius: 8, color: "#e2e8f0" }} itemStyle={{ color: "#e2e8f0" }} />
+                        <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 8, color: "#1e293b" }} itemStyle={{ color: "#1e293b" }} />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
                 </div>
                 <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 6 }}>
                   {cspRows.map((c) => (
-                    <div key={c.key} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: "1px solid #2a4063", flexWrap: "wrap", gap: 4 }}>
+                    <div key={c.key} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: "1px solid #e2e8f0", flexWrap: "wrap", gap: 4 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 6, minWidth: 140 }}>
                         <span style={{ width: 8, height: 8, borderRadius: 2, background: c.color, display: "inline-block" }} />
-                        <span style={{ fontSize: 12, color: "#e2e8f0" }}>{c.label}</span>
+                        <span style={{ fontSize: 12, color: "#1e293b" }}>{c.label}</span>
                       </div>
-                      <span style={{ fontSize: 11, color: "#94a3b8" }}>Target {Math.round(c.min * 100)}%{c.max ? `–${Math.round(c.max * 100)}%` : "+"}</span>
-                      <span style={{ fontSize: 12, fontWeight: 600, color: "#e2e8f0" }}>{fmt(c.actualValue)}/mo ({Math.round(c.actualPct * 100)}%)</span>
+                      <span style={{ fontSize: 11, color: "#64748b" }}>Target {Math.round(c.min * 100)}%{c.max ? `–${Math.round(c.max * 100)}%` : "+"}</span>
+                      <span style={{ fontSize: 12, fontWeight: 600, color: "#1e293b" }}>{fmt(c.actualValue)}/mo ({Math.round(c.actualPct * 100)}%)</span>
                       <span style={{
                         fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 10, textTransform: "uppercase",
-                        background: c.status === "On track" ? "rgba(74,222,128,0.12)" : c.status === "Under" ? "rgba(248,113,113,0.12)" : "rgba(232,184,75,0.12)",
-                        color: c.status === "On track" ? "#4ade80" : c.status === "Under" ? "#f87171" : "#e8b84b",
+                        background: c.status === "On track" ? "rgba(22,163,74,0.12)" : c.status === "Under" ? "rgba(220,38,38,0.12)" : "rgba(37,99,235,0.12)",
+                        color: c.status === "On track" ? "#16a34a" : c.status === "Under" ? "#dc2626" : "#2563eb",
                       }}>{c.status}</span>
                     </div>
                   ))}
                 </div>
-                <div style={{ marginTop: 10, fontSize: 10, color: "#94a3b8" }}>
+                <div style={{ marginTop: 10, fontSize: 10, color: "#64748b" }}>
                   Based on Ramit Sethi's Conscious Spending Plan (50–60% Fixed Costs · 20–35% Guilt-Free Spending · 5–10%+ Savings · 10%+ Investments). "Fixed Costs" here includes both your Fixed and Variable categories (necessities); "Savings" is whatever's left over after costs, guilt-free spending and investing each month — a negative figure means the household spent more than it earned that month.
                 </div>
               </div>
@@ -1003,24 +1003,24 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
           {/* DATA ENTRY */}
           {tab === "data" && (
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <Section title="💰 Income" color="#4ade80" total={totalIncome}>
+              <Section title="💰 Income" color="#16a34a" total={totalIncome}>
                 {INCOME.map(k => <InputRow key={k} label={k} value={cur[k]} onChange={v => update(k, v)} />)}
               </Section>
               <div className="responsive-grid-2" style={grid2Style}>
-                <Section title="🏠 Fixed Expenses" color="#e8b84b" total={fixedTotal}>
+                <Section title="🏠 Fixed Expenses" color="#2563eb" total={fixedTotal}>
                   {FIXED.map(k => <InputRow key={k} label={k} value={cur[k]} onChange={v => update(k, v)} />)}
                 </Section>
-                <Section title="🔧 Variable" color="#2dd4bf" total={variableTotal}>
+                <Section title="🔧 Variable" color="#0891b2" total={variableTotal}>
                   {VARIABLE.map(k => <InputRow key={k} label={k} value={cur[k]} onChange={v => update(k, v)} />)}
                 </Section>
               </div>
-              <Section title="🍽️ Lifestyle" color="#f87171" total={lifestyleTotal}>
+              <Section title="🍽️ Lifestyle" color="#dc2626" total={lifestyleTotal}>
                 <div className="responsive-grid-2" style={grid2Style}>
                   <div>{LIFESTYLE.slice(0,4).map(k => <InputRow key={k} label={k} value={cur[k]} onChange={v => update(k, v)} />)}</div>
                   <div>{LIFESTYLE.slice(4).map(k => <InputRow key={k} label={k} value={cur[k]} onChange={v => update(k, v)} />)}</div>
                 </div>
               </Section>
-              <Section title="📈 Investing" color="#f5d07a" total={invested}>
+              <Section title="📈 Investing" color="#0284c7" total={invested}>
                 <InputRow label="Pearler + BTC DCA" value={cur["Investing"]} onChange={v => update("Investing", v)} />
               </Section>
               <div style={cardStyle}>
@@ -1029,13 +1029,13 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                   value={cur.Notes || ""}
                   onChange={e => setData(p => ({ ...p, [selectedMonth]: { ...p[selectedMonth], Notes: e.target.value } }))}
                   placeholder="Big expenses, context, anomalies this month..."
-                  style={{ width: "100%", padding: "8px 10px", border: "1px solid #2a4063", borderRadius: 8, fontSize: 13, minHeight: 60, resize: "vertical", outline: "none", boxSizing: "border-box", color: "#e2e8f0", background: "#0d1b2e" }}
+                  style={{ width: "100%", padding: "8px 10px", border: "1px solid #e2e8f0", borderRadius: 8, fontSize: 13, minHeight: 60, resize: "vertical", outline: "none", boxSizing: "border-box", color: "#1e293b", background: "#f4f6f9" }}
                 />
               </div>
-              <div style={{ background: "#0f1b2d", borderRadius: 12, padding: "12px 16px", display: "flex", gap: 16, flexWrap: "wrap" }}>
-                {[["Income", fmt(totalIncome), "#4ade80"],["Expenses", fmt(totalExpenses), "#f87171"],["Invested", fmt(invested), "#f5d07a"],["Net", fmt(netCashflow), netCashflow >= 0 ? "#4ade80" : "#f87171"]].map(([label, value, color]) => (
+              <div style={{ background: "#f1f5f9", border: "1px solid #1e293b", borderRadius: 12, padding: "12px 16px", display: "flex", gap: 16, flexWrap: "wrap" }}>
+                {[["Income", fmt(totalIncome), "#16a34a"],["Expenses", fmt(totalExpenses), "#dc2626"],["Invested", fmt(invested), "#0284c7"],["Net", fmt(netCashflow), netCashflow >= 0 ? "#16a34a" : "#dc2626"]].map(([label, value, color]) => (
                   <div key={label} style={{ flex: 1, minWidth: 80 }}>
-                    <div style={{ fontSize: 10, color: "#94a3b8", fontWeight: 700, textTransform: "uppercase" }}>{label}</div>
+                    <div style={{ fontSize: 10, color: "#64748b", fontWeight: 700, textTransform: "uppercase" }}>{label}</div>
                     <div style={{ fontSize: 18, fontWeight: 800, color }}>{value}</div>
                   </div>
                 ))}
@@ -1050,13 +1050,13 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 <div style={chartTitleStyle}>Income vs Total Outgoings</div>
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={trendData} margin={{ top: 4, right: 12, bottom: 0, left: 4 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
-                    <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#94a3b8" }} axisLine={false} tickLine={false} />
-                    <YAxis tick={{ fontSize: 11, fill: "#94a3b8" }} tickFormatter={v => `$${(v/1000).toFixed(0)}k`} axisLine={false} tickLine={false} width={42} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(15,23,42,0.06)" />
+                    <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#64748b" }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 11, fill: "#64748b" }} tickFormatter={v => `$${(v/1000).toFixed(0)}k`} axisLine={false} tickLine={false} width={42} />
                     <Tooltip content={<CustomTooltip />} />
-                    <Legend wrapperStyle={{ fontSize: 11, color: "#94a3b8" }} />
-                    <Line type="monotone" dataKey="income"   name="Income"          stroke="#4ade80" strokeWidth={2.5} dot={{ r: 5, fill: "#4ade80" }} />
-                    <Line type="monotone" dataKey="expenses" name="Total Outgoings" stroke="#f87171" strokeWidth={2.5} dot={{ r: 5, fill: "#f87171" }} />
+                    <Legend wrapperStyle={{ fontSize: 11, color: "#64748b" }} />
+                    <Line type="monotone" dataKey="income"   name="Income"          stroke="#16a34a" strokeWidth={2.5} dot={{ r: 5, fill: "#16a34a" }} />
+                    <Line type="monotone" dataKey="expenses" name="Total Outgoings" stroke="#dc2626" strokeWidth={2.5} dot={{ r: 5, fill: "#dc2626" }} />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
@@ -1064,22 +1064,22 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
               <div className="responsive-grid-2" style={grid2Style}>
                 <div style={cardStyle}>
                   <div style={chartTitleStyle}>🍽️ Eating Out</div>
-                  <MiniBarChart data={trendData} dataKey="Eating out" color="#f87171" />
+                  <MiniBarChart data={trendData} dataKey="Eating out" color="#dc2626" />
                 </div>
                 <div style={cardStyle}>
                   <div style={chartTitleStyle}>☕ Coffee</div>
-                  <MiniBarChart data={trendData} dataKey="Coffee" color="#f5d07a" />
+                  <MiniBarChart data={trendData} dataKey="Coffee" color="#0284c7" />
                 </div>
               </div>
 
               <div className="responsive-grid-2" style={grid2Style}>
                 <div style={cardStyle}>
                   <div style={chartTitleStyle}>🛒 Groceries</div>
-                  <MiniBarChart data={trendData} dataKey="Groceries" color="#2dd4bf" />
+                  <MiniBarChart data={trendData} dataKey="Groceries" color="#0891b2" />
                 </div>
                 <div style={cardStyle}>
                   <div style={chartTitleStyle}>🛍️ Shopping</div>
-                  <MiniBarChart data={trendData} dataKey="Shopping" color="#a78bfa" />
+                  <MiniBarChart data={trendData} dataKey="Shopping" color="#4f46e5" />
                 </div>
               </div>
 
@@ -1087,11 +1087,11 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 <div style={chartTitleStyle}>📈 Investing</div>
                 <ResponsiveContainer width="100%" height={130}>
                   <BarChart data={trendData} margin={{ top: 4, right: 12, bottom: 0, left: 4 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-                    <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#94a3b8" }} axisLine={false} tickLine={false} />
-                    <YAxis tick={{ fontSize: 11, fill: "#94a3b8" }} tickFormatter={v => `$${(v/1000).toFixed(1)}k`} axisLine={false} tickLine={false} width={42} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(15,23,42,0.06)" vertical={false} />
+                    <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#64748b" }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 11, fill: "#64748b" }} tickFormatter={v => `$${(v/1000).toFixed(1)}k`} axisLine={false} tickLine={false} width={42} />
                     <Tooltip content={<CustomTooltip />} />
-                    <Bar dataKey="Investing" name="Investing" fill="#f5d07a" radius={[5,5,0,0]} />
+                    <Bar dataKey="Investing" name="Investing" fill="#0284c7" radius={[5,5,0,0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -1105,8 +1105,8 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                         label={({ percent }) => percent > 0.05 ? `${Math.round(percent * 100)}%` : ""} labelLine={false}>
                         {lifestylePie.map((e, i) => <Cell key={i} fill={e.color} />)}
                       </Pie>
-                      <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: "#1e3251", border: "1px solid #2a4063", borderRadius: 8, color: "#e2e8f0" }} itemStyle={{ color: "#e2e8f0" }} />
-                      <Legend layout={isMobile ? "horizontal" : "vertical"} align={isMobile ? "center" : "right"} verticalAlign={isMobile ? "bottom" : "middle"} wrapperStyle={{ fontSize: 11, color: "#94a3b8" }}
+                      <Tooltip formatter={(v) => fmt(v)} contentStyle={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 8, color: "#1e293b" }} itemStyle={{ color: "#1e293b" }} />
+                      <Legend layout={isMobile ? "horizontal" : "vertical"} align={isMobile ? "center" : "right"} verticalAlign={isMobile ? "bottom" : "middle"} wrapperStyle={{ fontSize: 11, color: "#64748b" }}
                         formatter={(v, e) => `${v}: ${fmt(e.payload.value)}`} />
                     </PieChart>
                   </ResponsiveContainer>
@@ -1115,7 +1115,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
             </div>
           )}
 
-          <div style={{ marginTop: 12, fontSize: 10, color: "#94a3b8", textAlign: "center" }}>
+          <div style={{ marginTop: 12, fontSize: 10, color: "#64748b", textAlign: "center" }}>
             Auto-saved to browser · {new Date().toLocaleDateString("en-AU")}
           </div>
         </div>
@@ -1344,17 +1344,20 @@ function buildHeadlineMetrics() {
 // =====================================================================
 // CHARTS
 // =====================================================================
-Chart.defaults.color = '#94a3b8';
-Chart.defaults.borderColor = 'rgba(255,255,255,0.07)';
+Chart.defaults.color = '#64748b';
+Chart.defaults.borderColor = 'rgba(15,23,42,0.07)';
+Chart.defaults.plugins.tooltip.titleColor = '#1e293b';
+Chart.defaults.plugins.tooltip.bodyColor = '#1e293b';
+Chart.defaults.plugins.tooltip.footerColor = '#1e293b';
 
 const chartColors = {
-  gold: '#e8b84b',
-  goldA: 'rgba(232,184,75,0.25)',
-  red: '#f87171',
-  redA: 'rgba(248,113,113,0.25)',
-  teal: '#2dd4bf',
-  tealA: 'rgba(45,212,191,0.25)',
-  green: '#4ade80',
+  gold: '#2563eb',
+  goldA: 'rgba(37,99,235,0.25)',
+  red: '#dc2626',
+  redA: 'rgba(220,38,38,0.25)',
+  teal: '#0891b2',
+  tealA: 'rgba(8,145,178,0.25)',
+  green: '#16a34a',
   slate: '#64748b',
 };
 
@@ -1370,14 +1373,14 @@ function buildCashflowChart() {
         {
           label: 'Rent Income',
           data: income,
-          backgroundColor: income.map((_, i) => isProjected[i] ? 'rgba(232,184,75,0.35)' : 'rgba(232,184,75,0.8)'),
+          backgroundColor: income.map((_, i) => isProjected[i] ? 'rgba(37,99,235,0.35)' : 'rgba(37,99,235,0.8)'),
           borderColor: chartColors.gold,
           borderWidth: 1, borderRadius: 4, order: 2
         },
         {
           label: 'Total Expenses',
           data: expenses.map(v => -v),
-          backgroundColor: expenses.map((_, i) => isProjected[i] ? 'rgba(248,113,113,0.3)' : 'rgba(248,113,113,0.7)'),
+          backgroundColor: expenses.map((_, i) => isProjected[i] ? 'rgba(220,38,38,0.3)' : 'rgba(220,38,38,0.7)'),
           borderColor: chartColors.red,
           borderWidth: 1, borderRadius: 4, order: 2
         },
@@ -1399,7 +1402,7 @@ function buildCashflowChart() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#1a2e4a', borderColor: '#2a4063', borderWidth: 1,
+          backgroundColor: '#f8fafc', borderColor: '#e2e8f0', borderWidth: 1,
           callbacks: {
             label: ctx => {
               const v = ctx.parsed.y;
@@ -1409,9 +1412,9 @@ function buildCashflowChart() {
         }
       },
       scales: {
-        x: { grid: { color: 'rgba(255,255,255,0.05)' } },
+        x: { grid: { color: 'rgba(15,23,42,0.05)' } },
         y: {
-          grid: { color: 'rgba(255,255,255,0.05)' },
+          grid: { color: 'rgba(15,23,42,0.05)' },
           ticks: { callback: v => '$'+Math.abs(v/1000).toFixed(1)+'k' }
         }
       }
@@ -1428,16 +1431,16 @@ function buildExpenseDonut() {
       labels: ['Mortgage (Loan 1 P+I)', 'Mortgage (Loan 2 IO)', 'Property Mgmt', 'Body Corp', 'Landlord Insurance', 'Council Rates', 'Admin Fee'],
       datasets: [{
         data: [1153, 3208, 221.08, 319.24, 43.82, 354, 8.80],
-        backgroundColor: ['#2dd4bf','#0891b2','#e8b84b','#f59e0b','#f87171','#a78bfa','#64748b'],
-        borderColor: '#0f1b2d', borderWidth: 2
+        backgroundColor: ['#0891b2','#0891b2','#2563eb','#ca8a04','#dc2626','#4f46e5','#64748b'],
+        borderColor: '#ffffff', borderWidth: 2
       }]
     },
     options: {
       responsive: true, cutout: '65%',
       plugins: {
-        legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 12, color: '#94a3b8' } },
+        legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 12, color: '#64748b' } },
         tooltip: {
-          backgroundColor: '#1a2e4a', borderColor: '#2a4063', borderWidth: 1,
+          backgroundColor: '#f8fafc', borderColor: '#e2e8f0', borderWidth: 1,
           callbacks: {
             label: ctx => ` ${ctx.label}: $${ctx.parsed.toLocaleString('en-AU', {minimumFractionDigits:2})} (${((ctx.parsed/ctx.dataset.data.reduce((a,b)=>a+b,0))*100).toFixed(1)}%)`
           }
@@ -1458,7 +1461,7 @@ function buildCumulativeChart() {
         label: 'Cumulative Net Cashflow',
         data: cumulative,
         borderColor: chartColors.red,
-        backgroundColor: 'rgba(248,113,113,0.1)',
+        backgroundColor: 'rgba(220,38,38,0.1)',
         fill: true, borderWidth: 2, tension: 0.4,
         pointRadius: 4, pointBackgroundColor: chartColors.red
       }]
@@ -1468,14 +1471,14 @@ function buildCumulativeChart() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#1a2e4a', borderColor: '#2a4063', borderWidth: 1,
+          backgroundColor: '#f8fafc', borderColor: '#e2e8f0', borderWidth: 1,
           callbacks: { label: ctx => ` Cumulative: -$${Math.abs(ctx.parsed.y).toLocaleString()}` }
         }
       },
       scales: {
-        x: { grid: { color: 'rgba(255,255,255,0.05)' } },
+        x: { grid: { color: 'rgba(15,23,42,0.05)' } },
         y: {
-          grid: { color: 'rgba(255,255,255,0.05)' },
+          grid: { color: 'rgba(15,23,42,0.05)' },
           ticks: { callback: v => '-$'+Math.abs(v/1000).toFixed(1)+'k' }
         }
       }
@@ -1494,18 +1497,18 @@ function buildStackedExpenseChart() {
     data: {
       labels: lMonths,
       datasets: [
-        { label: 'Mortgage', data: mortData, backgroundColor: 'rgba(45,212,191,0.7)', borderColor: chartColors.teal, borderWidth: 1, borderRadius: 3 },
-        { label: 'Other Fixed Costs', data: otherData, backgroundColor: 'rgba(232,184,75,0.7)', borderColor: chartColors.gold, borderWidth: 1, borderRadius: 3 }
+        { label: 'Mortgage', data: mortData, backgroundColor: 'rgba(8,145,178,0.7)', borderColor: chartColors.teal, borderWidth: 1, borderRadius: 3 },
+        { label: 'Other Fixed Costs', data: otherData, backgroundColor: 'rgba(37,99,235,0.7)', borderColor: chartColors.gold, borderWidth: 1, borderRadius: 3 }
       ]
     },
     options: {
       responsive: true, scales: {
-        x: { stacked: true, grid: { color: 'rgba(255,255,255,0.05)' } },
-        y: { stacked: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { callback: v => '$'+v.toLocaleString() } }
+        x: { stacked: true, grid: { color: 'rgba(15,23,42,0.05)' } },
+        y: { stacked: true, grid: { color: 'rgba(15,23,42,0.05)' }, ticks: { callback: v => '$'+v.toLocaleString() } }
       },
       plugins: {
-        legend: { labels: { color: '#94a3b8', font: { size: 11 } } },
-        tooltip: { backgroundColor: '#1a2e4a', borderColor: '#2a4063', borderWidth: 1 }
+        legend: { labels: { color: '#64748b', font: { size: 11 } } },
+        tooltip: { backgroundColor: '#f8fafc', borderColor: '#e2e8f0', borderWidth: 1 }
       }
     }
   });
@@ -1520,16 +1523,16 @@ function buildFixedCostDonut() {
       labels: ['Property Mgmt Fee', 'Body Corporate', 'Corp Insurance', 'Landlord Insurance', 'Council Rates', 'Admin Fee'],
       datasets: [{
         data: [221.08, 310.46, 8.78, 43.82, 354, 8.80],
-        backgroundColor: ['#e8b84b','#f59e0b','#f87171','#a78bfa','#2dd4bf','#64748b'],
-        borderColor: '#0f1b2d', borderWidth: 2
+        backgroundColor: ['#2563eb','#ca8a04','#dc2626','#4f46e5','#0891b2','#64748b'],
+        borderColor: '#ffffff', borderWidth: 2
       }]
     },
     options: {
       responsive: true, cutout: '65%',
       plugins: {
-        legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10, color: '#94a3b8' } },
+        legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10, color: '#64748b' } },
         tooltip: {
-          backgroundColor: '#1a2e4a', borderColor: '#2a4063', borderWidth: 1,
+          backgroundColor: '#f8fafc', borderColor: '#e2e8f0', borderWidth: 1,
           callbacks: {
             label: ctx => ` ${ctx.label}: $${ctx.parsed.toFixed(2)}/mo`
           }
@@ -1549,8 +1552,8 @@ function buildTaxChart() {
       datasets: [{
         label: 'Annual Deductible Amount ($)',
         data: [38500, 11374, 4248, 3725.52, 2652.96, 630, 1972],
-        backgroundColor: ['#e8b84b','#f5d07a','#2dd4bf','#a78bfa','#f87171','#4ade80','#64748b'],
-        borderColor: '#0f1b2d', borderWidth: 1, borderRadius: 5
+        backgroundColor: ['#2563eb','#0284c7','#0891b2','#4f46e5','#dc2626','#16a34a','#64748b'],
+        borderColor: '#ffffff', borderWidth: 1, borderRadius: 5
       }]
     },
     options: {
@@ -1558,13 +1561,13 @@ function buildTaxChart() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#1a2e4a', borderColor: '#2a4063', borderWidth: 1,
+          backgroundColor: '#f8fafc', borderColor: '#e2e8f0', borderWidth: 1,
           callbacks: { label: ctx => ` $${ctx.parsed.x.toLocaleString()}` }
         }
       },
       scales: {
-        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { callback: v => '$'+v.toLocaleString() } },
-        y: { grid: { color: 'rgba(255,255,255,0.05)' } }
+        x: { grid: { color: 'rgba(15,23,42,0.05)' }, ticks: { callback: v => '$'+v.toLocaleString() } },
+        y: { grid: { color: 'rgba(15,23,42,0.05)' } }
       }
     }
   });
@@ -1583,7 +1586,7 @@ function buildLoanChart() {
         label: 'Combined Monthly Repayment',
         data: loanVals,
         borderColor: chartColors.teal,
-        backgroundColor: 'rgba(45,212,191,0.1)',
+        backgroundColor: 'rgba(8,145,178,0.1)',
         fill: true, borderWidth: 2, tension: 0.3, pointRadius: 5,
         pointBackgroundColor: chartColors.teal
       }]
@@ -1593,14 +1596,14 @@ function buildLoanChart() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#1a2e4a', borderColor: '#2a4063', borderWidth: 1,
+          backgroundColor: '#f8fafc', borderColor: '#e2e8f0', borderWidth: 1,
           callbacks: { label: ctx => ` Repayment: $${ctx.parsed.y.toFixed(2)}` }
         }
       },
       scales: {
-        x: { grid: { color: 'rgba(255,255,255,0.05)' } },
+        x: { grid: { color: 'rgba(15,23,42,0.05)' } },
         y: {
-          grid: { color: 'rgba(255,255,255,0.05)' },
+          grid: { color: 'rgba(15,23,42,0.05)' },
           min: 3700, ticks: { callback: v => '$'+v.toLocaleString() }
         }
       }
@@ -1749,11 +1752,11 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
           growthDefensive: "75% growth / 25% defensive",
           asOf: "2026-07-01",
           exposure: [
-            { asset: "Australian shares", pct: 30, color: "#2dd4bf" },
-            { asset: "International shares (developed)", pct: 41, color: "#3b82f6" },
-            { asset: "International shares (emerging)", pct: 4, color: "#a78bfa" },
-            { asset: "Bonds", pct: 20, color: "#c2703c" },
-            { asset: "Cash", pct: 5, color: "#4ade80" },
+            { asset: "Australian shares", pct: 30, color: "#0891b2" },
+            { asset: "International shares (developed)", pct: 41, color: "#2563eb" },
+            { asset: "International shares (emerging)", pct: 4, color: "#4f46e5" },
+            { asset: "Bonds", pct: 20, color: "#78350f" },
+            { asset: "Cash", pct: 5, color: "#16a34a" },
           ],
         },
         offsetCash: {
@@ -1778,27 +1781,27 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
     const pct = (v) => (v * 100).toFixed(1) + "%";
 
     const COLORS = {
-      bg: "#0d1b2e",
-      card: "#1e3251",
-      border: "#2a4063",
-      accent: "#e8b84b",
-      accentDim: "rgba(232,184,75,0.15)",
-      green: "#4ade80",
-      amber: "#f5d07a",
-      rose: "#f87171",
-      text: "#e2e8f0",
-      textDim: "#94a3b8",
+      bg: "#f4f6f9",
+      card: "#ffffff",
+      border: "#e2e8f0",
+      accent: "#2563eb",
+      accentDim: "rgba(37,99,235,0.15)",
+      green: "#16a34a",
+      amber: "#0284c7",
+      rose: "#dc2626",
+      text: "#1e293b",
+      textDim: "#64748b",
       textMuted: "#64748b",
     };
 
     const PLATFORM_COLORS = {
-      Pearler: { main: "#2dd4bf", dim: "rgba(45,212,191,0.15)", icon: "📊" },
-      Crypto:  { main: "#8b5cf6", dim: "rgba(139,92,246,0.15)",  icon: "⚡" },
-      Swyftx:  { main: "#8b5cf6", dim: "rgba(139,92,246,0.15)",  icon: "⚡" },
-      Trezor:  { main: "#4ade80", dim: "rgba(74,222,128,0.15)",  icon: "🔐" },
-      Super:   { main: "#e8b84b", dim: "rgba(232,184,75,0.15)",  icon: "🏦" },
+      Pearler: { main: "#0891b2", dim: "rgba(8,145,178,0.15)", icon: "📊" },
+      Crypto:  { main: "#4338ca", dim: "rgba(67,56,202,0.15)",  icon: "⚡" },
+      Swyftx:  { main: "#4338ca", dim: "rgba(67,56,202,0.15)",  icon: "⚡" },
+      Trezor:  { main: "#16a34a", dim: "rgba(22,163,74,0.15)",  icon: "🔐" },
+      Super:   { main: "#2563eb", dim: "rgba(37,99,235,0.15)",  icon: "🏦" },
       OffsetCash: { main: "#64748b", dim: "rgba(100,116,139,0.15)", icon: "💵" },
-      "Swyftx + Trezor": { main: "#8b5cf6", dim: "rgba(139,92,246,0.15)", icon: "⚡" },
+      "Swyftx + Trezor": { main: "#4338ca", dim: "rgba(67,56,202,0.15)", icon: "⚡" },
     };
 
     // Per-holding colors so individual assets stand out from each other in the
@@ -1806,24 +1809,24 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
     // platform sharing one color. Falls back to the platform color if a new
     // ticker/asset isn't listed here yet.
     const HOLDING_COLORS = {
-      IVV: "#3b82f6",     // blue — US
-      VAS: "#2dd4bf",     // teal — Australian
-      PMGOLD: "#e8b84b",  // gold
-      FANG: "#c084fc",    // orchid
-      COIN: "#facc15",    // yellow
-      BTC: "#f7931a",     // Bitcoin orange
+      IVV: "#2563eb",     // blue — US
+      VAS: "#0891b2",     // teal — Australian
+      PMGOLD: "#2563eb",  // gold
+      FANG: "#9333ea",    // orchid
+      COIN: "#a16207",    // yellow
+      BTC: "#c2740c",     // Bitcoin orange
       ETH: "#627eea",     // Ethereum blue-violet
-      SOL: "#14f195",     // Solana green
-      FET: "#a78bfa",     // violet
-      ARKM: "#fb7185",    // rose
-      TRUMP: "#eab308",   // dark yellow
+      SOL: "#059669",     // Solana green
+      FET: "#4f46e5",     // violet
+      ARKM: "#e11d48",    // rose
+      TRUMP: "#ca8a04",   // dark yellow
       LUNA: "#64748b",    // slate (near-worthless legacy position)
     };
 
     function MiniBar({ value, max, color }) {
       const w = max > 0 ? (value / max) * 100 : 0;
       return (
-        <div style={{ width: "100%", height: 6, borderRadius: 3, background: "rgba(255,255,255,0.06)" }}>
+        <div style={{ width: "100%", height: 6, borderRadius: 3, background: "rgba(15,23,42,0.06)" }}>
           <div style={{ width: `${w}%`, height: "100%", borderRadius: 3, background: color, transition: "width 0.6s ease" }} />
         </div>
       );
@@ -1836,7 +1839,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
       let cumulative = 0;
       return (
         <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-          <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth={strokeW} />
+          <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(15,23,42,0.04)" strokeWidth={strokeW} />
           {segments.map((seg, i) => {
             const p = total > 0 ? seg.value / total : 0;
             const dashLen = p * circumference, dashGap = circumference - dashLen;
@@ -1906,7 +1909,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
                 const y = getY(v);
                 return (
                   <g key={i}>
-                    <line x1={padL} x2={chartW - padR} y1={y} y2={y} stroke="rgba(255,255,255,0.05)" strokeWidth={1} />
+                    <line x1={padL} x2={chartW - padR} y1={y} y2={y} stroke="rgba(15,23,42,0.05)" strokeWidth={1} />
                     <text x={padL - 8} y={y + 3} textAnchor="end" fill={COLORS.textMuted} fontSize="9" fontFamily="'Inter', sans-serif">{fmtCompact(v)}</text>
                   </g>
                 );
@@ -2174,13 +2177,13 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
       // (VAS = Australian, IVV/FANG/COIN = US/developed) with Hostplus's declared
       // target allocation for the Super balance (see [[finances-dashboard-structure]]).
       const marketExposureData = [
-        { label: "Australian Shares", value: (q.pearler.holdings.find((h) => h.ticker === "VAS")?.value || 0) + superAsset("Australian shares"), color: "#2dd4bf" },
-        { label: "US / Developed Markets", value: (q.pearler.holdings.find((h) => h.ticker === "IVV")?.value || 0) + (q.pearler.holdings.find((h) => h.ticker === "FANG")?.value || 0) + (q.pearler.holdings.find((h) => h.ticker === "COIN")?.value || 0) + superAsset("International shares (developed)"), color: "#3b82f6" },
-        { label: "Emerging Markets", value: superAsset("International shares (emerging)"), color: "#a78bfa" },
-        { label: "Bonds", value: superAsset("Bonds"), color: "#c2703c" },
-        { label: "Gold", value: q.pearler.holdings.find((h) => h.ticker === "PMGOLD")?.value || 0, color: "#e8b84b" },
-        { label: "Crypto", value: cryptoOnlyTotal, color: "#8b5cf6" },
-        { label: "Cash", value: swyftxFiat + superAsset("Cash") + offsetCashTotal, color: "#4ade80" },
+        { label: "Australian Shares", value: (q.pearler.holdings.find((h) => h.ticker === "VAS")?.value || 0) + superAsset("Australian shares"), color: "#0891b2" },
+        { label: "US / Developed Markets", value: (q.pearler.holdings.find((h) => h.ticker === "IVV")?.value || 0) + (q.pearler.holdings.find((h) => h.ticker === "FANG")?.value || 0) + (q.pearler.holdings.find((h) => h.ticker === "COIN")?.value || 0) + superAsset("International shares (developed)"), color: "#2563eb" },
+        { label: "Emerging Markets", value: superAsset("International shares (emerging)"), color: "#4f46e5" },
+        { label: "Bonds", value: superAsset("Bonds"), color: "#78350f" },
+        { label: "Gold", value: q.pearler.holdings.find((h) => h.ticker === "PMGOLD")?.value || 0, color: "#2563eb" },
+        { label: "Crypto", value: cryptoOnlyTotal, color: "#4338ca" },
+        { label: "Cash", value: swyftxFiat + superAsset("Cash") + offsetCashTotal, color: "#16a34a" },
       ].filter((a) => a.value > 0).sort((a, b) => b.value - a.value);
 
       const cardStyle = {
@@ -2232,7 +2235,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
             {/* Net value banner */}
             <div style={{
               ...cardStyle,
-              background: "linear-gradient(135deg, #1e3251 0%, #243d5e 100%)",
+              background: "linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)",
               marginBottom: 16, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16,
             }}>
               <div>
@@ -2382,7 +2385,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
                 </div>
               ) : (
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  <div style={{ ...cardStyle, background: "linear-gradient(135deg, #111827 0%, #1a2235 100%)" }}>
+                  <div style={{ ...cardStyle, background: "linear-gradient(135deg, #f1f5f9 0%, #f8fafc 100%)" }}>
                     <div style={{ fontSize: 10, color: COLORS.textMuted, letterSpacing: 2, textTransform: "uppercase", marginBottom: 6 }}>⚡ Crypto — Total</div>
                     <div style={{ fontSize: 22, fontWeight: 700, color: PLATFORM_COLORS.Crypto.main }}>{fmt(cryptoTotal)}</div>
                     <div style={{ fontSize: 10, color: COLORS.textMuted, marginTop: 4 }}>{pct(cryptoTotal / grandTotal)} of portfolio</div>
@@ -2441,7 +2444,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
                 </div>
               ) : (
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  <div style={{ ...cardStyle, background: "linear-gradient(135deg, #1e3251 0%, #243d5e 100%)" }}>
+                  <div style={{ ...cardStyle, background: "linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12 }}>
                       <div>
                         <div style={{ fontSize: 10, color: COLORS.textMuted, letterSpacing: 2, textTransform: "uppercase", marginBottom: 6 }}>🏦 Super — {q.super.provider}</div>
@@ -2510,7 +2513,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
                 </div>
               ) : (
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  <div style={{ ...cardStyle, background: "linear-gradient(135deg, #1e3251 0%, #243d5e 100%)" }}>
+                  <div style={{ ...cardStyle, background: "linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%)" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12 }}>
                       <div>
                         <div style={{ fontSize: 10, color: COLORS.textMuted, letterSpacing: 2, textTransform: "uppercase", marginBottom: 6 }}>💵 Cash — {q.offsetCash.institution}</div>
