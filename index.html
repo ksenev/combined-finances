@@ -1338,7 +1338,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 <div style={chartTitleStyle}>Holidays</div>
                 <MiniBarChart data={trendData} dataKey="Holidays" color="#e0b44f" />
               </div>
-              <div style={cardStyle}>
+              <div style={{ ...cardStyle, gridColumn: "1 / -1" }}>
                 <div style={chartTitleStyle}>Investing</div>
                 <ResponsiveContainer width="100%" height={140}>
                   <BarChart data={trendData} margin={{ top: 4, right: 4, bottom: 0, left: 4 }}>
