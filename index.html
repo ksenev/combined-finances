@@ -227,6 +227,12 @@
     #panel-property .metric-card { padding: 14px 14px; }
     #panel-property .metric-value { font-size: 1.4rem; }
   }
+  @media (max-width: 1000px) {
+    #panel-advisor .advisor-cols { grid-template-columns: 1fr !important; gap: 0 !important; }
+  }
+  @media (max-width: 560px) {
+    #panel-advisor > div > div { padding-left: 18px !important; padding-right: 18px !important; }
+  }
   @media (max-width: 480px) {
     html { font-size: 15px; } /* scales down the Property panel's rem-based text a touch on phones */
   }
@@ -625,8 +631,8 @@
   <div class="summary-row" style="margin-bottom:20px">
     <div class="summary-box" style="background:var(--card); border-radius:12px; padding:18px">
       <div class="label">Est. Annual Deductions (recurring)</div>
-      <div class="value amount-gold">~$63,000+</div>
-      <div style="font-size:0.75rem; color:var(--text2); margin-top:4px">Incl. full IO interest</div>
+      <div class="value amount-gold">~$91,000+</div>
+      <div style="font-size:0.75rem; color:var(--text2); margin-top:4px">Incl. full IO interest + depreciation</div>
     </div>
     <div class="summary-box" style="background:var(--card); border-radius:12px; padding:18px">
       <div class="label">One-off Deductions</div>
@@ -634,9 +640,9 @@
       <div style="font-size:0.75rem; color:var(--text2); margin-top:4px">Inspection + Let fee + NBN</div>
     </div>
     <div class="summary-box" style="background:var(--card); border-radius:12px; padding:18px">
-      <div class="label">Depreciation</div>
-      <div class="value" style="color:var(--text2)">TBC</div>
-      <div style="font-size:0.75rem; color:var(--text2); margin-top:4px">Quantity surveyor report recommended</div>
+      <div class="label">Depreciation (FY26)</div>
+      <div class="value amount-gold">$28,365</div>
+      <div style="font-size:0.75rem; color:var(--text2); margin-top:4px">$20,325 Div 40 + $8,040 Div 43</div>
     </div>
   </div>
 
@@ -657,12 +663,36 @@
         <tr style="background:rgba(124,197,140,0.07)"><td>Pre-settlement Inspection</td><td class="amount-gold">—</td><td class="amount-gold">$550.00</td><td>Once-off</td><td><span class="tag tag-actual">✓ Claimed</span></td></tr>
         <tr style="background:rgba(124,197,140,0.07)"><td>Letting Fee</td><td class="amount-gold">—</td><td class="amount-gold">$737.00</td><td>Once-off</td><td><span class="tag tag-projected">Pending</span></td></tr>
         <tr style="background:rgba(124,197,140,0.07)"><td>NBN Connection</td><td class="amount-gold">—</td><td class="amount-gold">$300.00</td><td>Once-off</td><td><span class="tag tag-projected">Pending</span></td></tr>
-        <tr style="background:rgba(124,197,140,0.07)"><td>Depreciation (D&amp;B Report)</td><td class="amount-gold">—</td><td class="amount-gold">TBC</td><td>Annual</td><td><span class="tag tag-projected">Not obtained</span></td></tr>
+        <tr style="background:rgba(124,197,140,0.07)"><td>Depreciation — Div 40 plant &amp; equipment</td><td class="amount-gold">—</td><td class="amount-gold">$20,325.00</td><td>Annual</td><td><span class="tag tag-projected">Pending</span></td></tr>
+        <tr style="background:rgba(124,197,140,0.07)"><td>Depreciation — Div 43 capital works</td><td class="amount-gold">—</td><td class="amount-gold">$8,040.00</td><td>Annual</td><td><span class="tag tag-projected">Pending</span></td></tr>
       </tbody>
     </table>
-    <div style="margin-top:14px; font-size:0.78rem; color:var(--text2); padding: 12px; background: rgba(124,197,140,0.10); border-radius:8px; border: 1px solid rgba(124,197,140,0.24)">
-      <strong style="color:var(--gold)">Tip:</strong> A depreciation (Div 40/43) report from a quantity surveyor could add significant additional deductions. Recommend organising this before lodging FY25-26 return.
+  </div>
+
+  <div class="table-card">
+    <div class="chart-title" style="margin-bottom:6px">Depreciation Schedule</div>
+    <div class="chart-sub" style="margin-bottom:12px">Quantity surveyor report · diminishing value method · $411,757 claimable over 40 years ($90,318 Div 40 + $321,439 Div 43)</div>
+    <div class="legend" style="margin-bottom:14px">
+      <div class="legend-item"><span style="display:inline-block; width:10px; height:10px; background:#8fa2f0; border-radius:2px"></span>Div 40 — plant &amp; equipment</div>
+      <div class="legend-item"><span style="display:inline-block; width:10px; height:10px; background:#5bb7a8; border-radius:2px"></span>Div 43 — capital works</div>
     </div>
+    <table>
+      <thead><tr><th>Yr</th><th>Financial Year</th><th>Div 40</th><th>Div 43</th><th>Total</th><th>Split</th><th>Tax saved @ 39%</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>FY25 (26–30 Jun 25)</td><td class="amount-gold">$2,025</td><td class="amount-gold">$88</td><td class="amount-gold">$2,113</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:7.1%; background:#8fa2f0"></div><div style="height:100%; width:0.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$824</td></tr>
+        <tr style="background:rgba(224,180,79,0.08)"><td>2</td><td>FY26</td><td class="amount-gold">$20,325</td><td class="amount-gold">$8,040</td><td class="amount-gold">$28,365</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:71.7%; background:#8fa2f0"></div><div style="height:100%; width:28.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$11,062</td></tr>
+        <tr><td>3</td><td>FY27</td><td class="amount-gold">$15,354</td><td class="amount-gold">$8,040</td><td class="amount-gold">$23,394</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:54.1%; background:#8fa2f0"></div><div style="height:100%; width:28.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$9,124</td></tr>
+        <tr><td>4</td><td>FY28</td><td class="amount-gold">$11,423</td><td class="amount-gold">$8,040</td><td class="amount-gold">$19,463</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:40.3%; background:#8fa2f0"></div><div style="height:100%; width:28.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$7,591</td></tr>
+        <tr><td>5</td><td>FY29</td><td class="amount-gold">$8,632</td><td class="amount-gold">$8,040</td><td class="amount-gold">$16,672</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:30.4%; background:#8fa2f0"></div><div style="height:100%; width:28.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$6,502</td></tr>
+        <tr><td>6</td><td>FY30</td><td class="amount-gold">$6,728</td><td class="amount-gold">$8,040</td><td class="amount-gold">$14,768</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:23.7%; background:#8fa2f0"></div><div style="height:100%; width:28.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$5,760</td></tr>
+        <tr><td>7</td><td>FY31</td><td class="amount-gold">$5,530</td><td class="amount-gold">$8,040</td><td class="amount-gold">$13,570</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:19.5%; background:#8fa2f0"></div><div style="height:100%; width:28.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$5,292</td></tr>
+        <tr><td>8</td><td>FY32</td><td class="amount-gold">$4,368</td><td class="amount-gold">$8,040</td><td class="amount-gold">$12,408</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:15.4%; background:#8fa2f0"></div><div style="height:100%; width:28.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$4,839</td></tr>
+        <tr><td>9</td><td>FY33</td><td class="amount-gold">$3,293</td><td class="amount-gold">$8,040</td><td class="amount-gold">$11,333</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:11.6%; background:#8fa2f0"></div><div style="height:100%; width:28.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$4,420</td></tr>
+        <tr><td>10</td><td>FY34</td><td class="amount-gold">$2,521</td><td class="amount-gold">$8,040</td><td class="amount-gold">$10,561</td><td style="min-width:120px"><div style="height:6px; background:rgba(255,255,255,0.06); display:flex; border-radius:3px; overflow:hidden"><div style="height:100%; width:8.9%; background:#8fa2f0"></div><div style="height:100%; width:28.3%; background:#5bb7a8"></div></div></td><td class="amount-positive">$4,119</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="2">Years 1–40 total</td><td>$90,318</td><td>$321,439</td><td>$411,757</td><td></td><td>$160,585</td></tr></tfoot>
+    </table>
+    <div style="margin-top:12px; font-size:0.78rem; color:var(--text2)">Div 40 falls away quickly under the diminishing value method; Div 43 holds at $8,040/yr for 40 years. Second-hand plant restrictions (ATO 2017) already reflected in the schedule.</div>
   </div>
 
   <div class="chart-card" style="margin-bottom:20px">
@@ -754,7 +784,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
 (function(){
 
     const {
-      BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
+      BarChart, Bar, LineChart, Line, ComposedChart, PieChart, Pie, Cell,
       XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
     } = Recharts;
     const { useState, useEffect } = React;
@@ -884,14 +914,15 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
 
     function MiniBarChart({ data, dataKey, color }) {
       return (
-        <ResponsiveContainer width="100%" height={120}>
-          <BarChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: 4 }}>
+        <ResponsiveContainer width="100%" height={140}>
+          <ComposedChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.07)" vertical={false} />
             <XAxis dataKey="month" tick={{ fontSize: 10, fill: "#999089" }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fontSize: 10, fill: "#999089" }} tickFormatter={v => v >= 1000 ? `$${(v/1000).toFixed(1)}k` : `$${v}`} axisLine={false} tickLine={false} width={38} />
             <Tooltip content={<CustomTooltip />} />
             <Bar dataKey={dataKey} name={dataKey} fill={color} radius={[4, 4, 0, 0]} />
-          </BarChart>
+            <Line type="monotone" dataKey={dataKey + " avg"} name="3-mo avg" stroke="#ece7dd" strokeWidth={1.5} strokeDasharray="4 3" dot={false} activeDot={false} />
+          </ComposedChart>
         </ResponsiveContainer>
       );
     }
@@ -932,6 +963,10 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
         if (!ready) return;
         try { localStorage.setItem(SUB_STORE, JSON.stringify(subs)); } catch {}
       }, [subs, ready]);
+      useEffect(() => {
+        window.__subs = subs.map(s => ({ name: s.name, monthly: (parseFloat(s.amount) || 0) * (CYCLE_MULT[s.cycle] || 1) }))
+          .sort((a, b) => b.monthly - a.monthly);
+      }, [subs]);
 
       const monthlyOf = s => (parseFloat(s.amount) || 0) * (CYCLE_MULT[s.cycle] || 1);
       const sorted = [...subs].sort((a, b) => monthlyOf(b) - monthlyOf(a));
@@ -1099,11 +1134,20 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
           expenses: Math.round(exp + inv),
           net: Math.round(inc - exp - inv),
           "Eating out": Math.round(d["Eating out"] || 0),
-          Coffee: Math.round(d["Coffee"] || 0),
           Shopping: Math.round(d["Shopping"] || 0),
           Groceries: Math.round(d["Groceries"] || 0),
+          Transport: Math.round((d["Fuel"] || 0) + (d["Vehicle"] || 0) + (d["Parking/tolls/transport"] || 0)),
+          Holidays: Math.round(d["Holidays"] || 0),
           Investing: Math.round(inv),
         };
+      });
+
+      // 3-month rolling average for every tracked series
+      ["Eating out", "Shopping", "Groceries", "Transport", "Holidays", "Investing", "net"].forEach((k) => {
+        trendData.forEach((row, i) => {
+          const win = trendData.slice(Math.max(0, i - 2), i + 1);
+          row[k + " avg"] = Math.round(win.reduce((s, r) => s + (r[k] || 0), 0) / win.length);
+        });
       });
 
       const pieData = [
@@ -1145,9 +1189,9 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
       const cspPct = (v) => cspAvg.income > 0 ? v / cspAvg.income : 0;
       const CSP_CATEGORIES = [
         { key: "fixedCosts",  label: "Fixed Costs",         min: 0.50, max: 0.60, targetShare: 55,   color: "#ed7665" },
-        { key: "guiltFree",   label: "Guilt-Free Spending",  min: 0.20, max: 0.35, targetShare: 27.5, color: "#7cc58c" },
-        { key: "savings",     label: "Savings",              min: 0.05, max: null, targetShare: 7.5,  color: "#75b683" },
-        { key: "investments", label: "Investments",          min: 0.10, max: null, targetShare: 10,   color: "#7cc58c" },
+        { key: "guiltFree",   label: "Guilt-Free Spending",  min: 0.20, max: 0.35, targetShare: 27.5, color: "#e0b44f" },
+        { key: "savings",     label: "Savings",              min: 0.05, max: null, targetShare: 7.5,  color: "#5bb7a8" },
+        { key: "investments", label: "Investments",          min: 0.10, max: null, targetShare: 10,   color: "#8fa2f0" },
       ];
       const cspRows = CSP_CATEGORIES.map((c) => {
         const actualValue = cspAvg[c.key];
@@ -1242,7 +1286,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
               <div style={cardStyle}>
                 <div style={chartTitleStyle}>Net Cashflow Trend</div>
                 <ResponsiveContainer width="100%" height={200}>
-                  <BarChart data={trendData} margin={{ top: 4, right: 8, bottom: 0, left: 4 }}>
+                  <ComposedChart data={trendData} margin={{ top: 4, right: 8, bottom: 0, left: 4 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.07)" vertical={false} />
                     <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#999089" }} axisLine={false} tickLine={false} />
                     <YAxis tick={{ fontSize: 11, fill: "#999089" }} tickFormatter={v => `$${(v/1000).toFixed(1)}k`} axisLine={false} tickLine={false} width={42} />
@@ -1250,7 +1294,7 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                     <Bar dataKey="net" name="Net Cashflow" radius={[0,0,0,0]}>
                       {trendData.map((e, i) => <Cell key={i} fill={e.net >= 0 ? "#7cc58c" : "#ed7665"} />)}
                     </Bar>
-                  </BarChart>
+                  </ComposedChart>
                 </ResponsiveContainer>
               </div>
             </div>
@@ -1276,8 +1320,8 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 <MiniBarChart data={trendData} dataKey="Eating out" color="#ed7665" />
               </div>
               <div style={cardStyle}>
-                <div style={chartTitleStyle}>Coffee</div>
-                <MiniBarChart data={trendData} dataKey="Coffee" color="#6aa9d6" />
+                <div style={chartTitleStyle}>Transport</div>
+                <MiniBarChart data={trendData} dataKey="Transport" color="#6aa9d6" />
               </div>
             </div>
 
@@ -1290,19 +1334,22 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 <div style={chartTitleStyle}>Shopping</div>
                 <MiniBarChart data={trendData} dataKey="Shopping" color="#9d8cd8" />
               </div>
-            </div>
-
-            <div style={cardStyle}>
-              <div style={chartTitleStyle}>Investing</div>
-              <ResponsiveContainer width="100%" height={130}>
-                <BarChart data={trendData} margin={{ top: 4, right: 12, bottom: 0, left: 4 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.07)" vertical={false} />
-                  <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#999089" }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 11, fill: "#999089" }} tickFormatter={v => `$${(v/1000).toFixed(1)}k`} axisLine={false} tickLine={false} width={42} />
-                  <Tooltip content={<CustomTooltip />} />
-                  <Bar dataKey="Investing" name="Investing" fill="#8fa2f0" radius={[0,0,0,0]} />
-                </BarChart>
-              </ResponsiveContainer>
+              <div style={cardStyle}>
+                <div style={chartTitleStyle}>Holidays</div>
+                <MiniBarChart data={trendData} dataKey="Holidays" color="#e0b44f" />
+              </div>
+              <div style={cardStyle}>
+                <div style={chartTitleStyle}>Investing</div>
+                <ResponsiveContainer width="100%" height={140}>
+                  <BarChart data={trendData} margin={{ top: 4, right: 4, bottom: 0, left: 4 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.07)" vertical={false} />
+                    <XAxis dataKey="month" tick={{ fontSize: 10, fill: "#999089" }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 10, fill: "#999089" }} tickFormatter={v => `$${(v/1000).toFixed(1)}k`} axisLine={false} tickLine={false} width={38} />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar dataKey="Investing" name="Investing" fill="#8fa2f0" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
             </div>
 
             <Subscriptions cardStyle={cardStyle} titleStyle={chartTitleStyle} linkBtn={linkBtn} fmt={fmt} />
@@ -2113,6 +2160,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
     const fmt = (v) =>
       v.toLocaleString("en-AU", { style: "currency", currency: "AUD", minimumFractionDigits: 2 });
     const fmtCompact = (v) => {
+      if (v >= 1000000) return "$" + (v / 1000000).toFixed(2).replace(/\.?0+$/, "") + "M";
       if (v >= 1000) return "$" + (v / 1000).toFixed(1) + "k";
       return "$" + v.toFixed(0);
     };
@@ -3124,16 +3172,38 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
     var q = Q[Q.length - 1];
     var pearler = q.pearler.total, crypto = q.swyftx.total + q.trezor.total;
     var sup = (q.super && q.super.total) || 0, cash = (q.offsetCash && q.offsetCash.total) || 0;
+    var cashFull = (q.offsetCash && q.offsetCash.fullBalance) || cash;
     var total = pearler + crypto + sup + cash;
     var holdings = (q.pearler.holdings || []).slice().sort(function (a, b) { return b.value - a.value; });
     return {
-      date: q.date, pearler: pearler, crypto: crypto, super: sup, cash: cash, total: total,
+      date: q.date, pearler: pearler, crypto: crypto, super: sup, cash: cash, cashFull: cashFull, total: total,
       cryptoShare: total ? crypto / total : 0,
       cashShare: total ? cash / total : 0,
       liquidInvested: pearler + crypto,
       topHolding: holdings[0] || null,
       topShare: pearler && holdings[0] ? holdings[0].value / pearler : 0,
     };
+  }
+
+  // Quantity surveyor schedule (diminishing value method), by financial year
+  var DEPRECIATION = {
+    method: 'Diminishing value',
+    totals: { div40: 90318, div43: 321439, all: 411757 },
+    years: [
+      { fy: 'FY25 (26–30 Jun 25)', div40: 2025,  div43: 88,   total: 2113 },
+      { fy: 'FY26', div40: 20325, div43: 8040, total: 28365 },
+      { fy: 'FY27', div40: 15354, div43: 8040, total: 23394 },
+      { fy: 'FY28', div40: 11423, div43: 8040, total: 19463 },
+      { fy: 'FY29', div40: 8632,  div43: 8040, total: 16672 },
+      { fy: 'FY30', div40: 6728,  div43: 8040, total: 14768 },
+    ],
+  };
+
+  function readSubs() {
+    var list = window.__subs;
+    if (!list || !list.length) return null;
+    var total = list.reduce(function (s, x) { return s + x.monthly; }, 0);
+    return { list: list, monthly: total, annual: total * 12 };
   }
 
   function card(title, body) {
@@ -3161,7 +3231,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
   }
 
   function build() {
-    var p = readPersonal(), r = readProperty(), f = readPortfolio();
+    var p = readPersonal(), r = readProperty(), f = readPortfolio(), sb = readSubs();
     var root = document.getElementById('advisor-root');
     if (!root) return;
     if (!p || !r || !f) { root.innerHTML = '<div style="padding:40px 44px; color:' + C.muted + '">Open the other tabs once so their data loads, then come back.</div>'; return; }
@@ -3169,7 +3239,7 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
     var householdNet = p.avg.net + r.monthlyNet;      // property shortfall already sits inside personal mortgage line for the IP? treat separately
     var savingsRate = p.avg.income > 0 ? (p.avg.net + p.avg.invested) / p.avg.income : 0;
     var lifestyleShare = p.avg.income > 0 ? p.avg.lifestyle / p.avg.income : 0;
-    var runway = p.avg.spend > 0 ? f.cash / p.avg.spend : 0;
+    var runway = p.avg.spend > 0 ? f.cashFull / p.avg.spend : 0;
 
     var recs = [];
 
@@ -3213,8 +3283,8 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
     if (runway < 3) {
       recs.push({
         title: 'Build the emergency buffer to three months of spending',
-        detail: 'Accessible cash covers about ' + runway.toFixed(1) + ' months of the ' + money(p.avg.spend) + '/mo run rate. With an interest-only loan resetting and a single-property concentration, three months (' + money(p.avg.spend * 3) + ') is the floor.',
-        impact: money(Math.max(0, p.avg.spend * 3 - f.cash)) + ' to go',
+        detail: 'The full offset balance (' + money(f.cashFull) + ') covers about ' + runway.toFixed(1) + ' months of the ' + money(p.avg.spend) + '/mo run rate. With an interest-only loan resetting and a single-property concentration, three months (' + money(p.avg.spend * 3) + ') is the floor.',
+        impact: money(Math.max(0, p.avg.spend * 3 - f.cashFull)) + ' to go',
         tone: C.warn, weight: 900,
       });
     }
@@ -3239,13 +3309,18 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
       });
     }
 
-    // 7. Depreciation schedule
+    // 7. Depreciation — from the quantity surveyor schedule
+    var dep = DEPRECIATION.years[1];
+    var depRefund = dep.total * 0.39;
     recs.push({
-      title: 'Get a quantity surveyor depreciation schedule',
-      detail: 'No Div 40/43 schedule is recorded. On a 2020s-built townhouse this typically unlocks $6,000–$10,000 of first-year deductions — worth roughly ' + money(8000 * 0.39) +
-        ' in refunded tax at a 39% marginal rate, against a one-off fee near $700 (itself deductible).',
-      impact: '≈' + money(8000 * 0.39) + ' one-off',
-      tone: C.good, weight: 800,
+      title: 'Claim the full ' + money(dep.total) + ' of FY26 depreciation',
+      detail: 'The quantity surveyor schedule (diminishing value) allows ' + money(dep.div40) + ' of Division 40 plant and ' + money(dep.div43) +
+        ' of Division 43 capital works this year — ' + money(dep.total) + ' of non-cash deductions, worth about ' + money(depRefund) +
+        ' in refunded tax at a 39% marginal rate. That alone more than covers the ' + money(Math.abs(r.monthlyNet * 12)) +
+        ' annual cash shortfall. Div 40 falls away fast (' + money(DEPRECIATION.years[2].total) + ' next year, ' + money(DEPRECIATION.years[3].total) +
+        ' the year after) while Div 43 holds at ' + money(dep.div43) + '/yr for 40 years — so plan on the deduction shrinking, not the rent.',
+      impact: '≈' + money(depRefund) + ' this FY',
+      tone: C.good, weight: 1400,
     });
 
     // 8. Portfolio concentration
@@ -3266,6 +3341,21 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
       });
     }
 
+    // 8b. Subscriptions
+    if (sb) {
+      var subShare = p.avg.income > 0 ? sb.monthly / p.avg.income : 0;
+      var top3 = sb.list.slice(0, 3);
+      var trimTarget = sb.list.slice(3).reduce(function (s, x) { return s + x.monthly; }, 0);
+      recs.push({
+        title: 'Audit the ' + sb.list.length + ' recurring subscriptions',
+        detail: money(sb.monthly) + '/mo leaves the account automatically — ' + pc(subShare) + ' of income, or ' + money(sb.annual) + ' a year. ' +
+          'The three largest (' + top3.map(function (x) { return x.name + ' ' + money(x.monthly); }).join(', ') + ') are mostly insurance and health, worth re-quoting annually rather than cancelling. ' +
+          'The remaining ' + (sb.list.length - 3) + ' small services total ' + money(trimTarget) + '/mo (' + money(trimTarget * 12) + '/yr) — the easiest place to cut without changing your life.',
+        impact: money(sb.annual) + '/yr locked in',
+        tone: sb.annual > 6000 ? C.warn : C.info, weight: sb.monthly * 1.1,
+      });
+    }
+
     // 9. Super
     recs.push({
       title: 'Use concessional super contributions to cut this year\'s tax',
@@ -3282,7 +3372,8 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
       statCell('Monthly surplus', money(p.avg.net), p.avg.net >= 0 ? C.good : C.bad, 'after investing') +
       statCell('Property net', money(r.monthlyNet), r.monthlyNet >= 0 ? C.good : C.bad, 'per month, last 12') +
       statCell('Net worth', money(r.equity + f.total), C.text, 'property equity + investments') +
-      statCell('Cash runway', runway.toFixed(1) + ' mo', runway >= 3 ? C.good : C.warn, 'offset ÷ monthly spend') +
+      statCell('Cash runway', runway.toFixed(1) + ' mo', runway >= 3 ? C.good : C.warn, 'full offset ÷ monthly spend') +
+      (sb ? statCell('Subscriptions', money(sb.monthly), sb.monthly > p.avg.income * 0.12 ? C.warn : C.text, money(sb.annual) + '/yr recurring') : '') +
       '</div>';
 
     var verdictTone = savingsRate >= 0.15 && p.avg.net >= 0 ? C.good : savingsRate >= 0.05 ? C.warn : C.bad;
@@ -3300,12 +3391,13 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
     }).join('');
 
     var watch =
-      '<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:32px">' +
+      '<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:26px">' +
       '<div><div style="font-size:10px; color:' + C.muted + '; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:12px">Working well</div>' +
       '<ul style="margin:0; padding-left:18px; font-size:12.5px; color:' + C.dim + '; line-height:1.9">' +
       '<li>' + money(p.avg.invested) + '/mo invested consistently through volatile months</li>' +
       '<li>Offset balance of ' + money(f.cash) + ' neutralising ' + pc(r.ioRate) + ' debt</li>' +
       '<li>Property equity of ' + money(r.equity) + ' built in year one</li>' +
+      '<li>Depreciation schedule in hand — ' + money(DEPRECIATION.years[1].total) + ' deductible this FY</li>' +
       '</ul></div>' +
       '<div><div style="font-size:10px; color:' + C.muted + '; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:12px">Watch closely</div>' +
       '<ul style="margin:0; padding-left:18px; font-size:12.5px; color:' + C.dim + '; line-height:1.9">' +
@@ -3314,6 +3406,23 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
       '<li>Holidays and shopping averaging ' + money(p.lifeAvg[0].value + p.lifeAvg[1].value) + '/mo combined</li>' +
       '</ul></div></div>';
 
+    var subPanel = sb ? (
+      '<div style="border-top:1px solid ' + C.line + '; padding:22px 0 6px">' +
+      '<div style="font-family:\'Newsreader\', Georgia, serif; font-size:19px; color:' + C.text + '; margin-bottom:4px">Recurring load</div>' +
+      '<div style="font-size:11.5px; color:' + C.muted + '; margin-bottom:16px">' + money(sb.monthly) + '/mo · ' + money(sb.annual) + '/yr</div>' +
+      sb.list.slice(0, 6).map(function (x) {
+        var w = Math.round((x.monthly / sb.list[0].monthly) * 100);
+        return '<div style="padding:7px 0; border-bottom:1px solid #26201b">' +
+          '<div style="display:flex; justify-content:space-between; gap:12px; font-size:12.5px; color:' + C.dim + '">' +
+          '<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap">' + x.name + '</span>' +
+          '<span style="font-family:\'Newsreader\', Georgia, serif; color:' + C.text + '; font-variant-numeric:tabular-nums">' + money(x.monthly) + '</span></div>' +
+          '<div style="height:3px; background:#26201b; margin-top:6px"><div style="height:100%; width:' + w + '%; background:#8fa2f0"></div></div>' +
+          '</div>';
+      }).join('') +
+      (sb.list.length > 6 ? '<div style="font-size:11.5px; color:' + C.muted + '; padding-top:10px">+ ' + (sb.list.length - 6) + ' smaller services</div>' : '') +
+      '</div>'
+    ) : '';
+
     root.innerHTML =
       '<div style="padding:30px 44px 40px; font-family:Inter, sans-serif; color:' + C.text + '">' +
       '<div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:24px">' +
@@ -3321,8 +3430,10 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
       '<div style="font-size:11.5px; color:' + C.muted + '">Reviewing ' + p.window[0] + ' – ' + p.last + ' · property year to date · portfolio ' + f.date + '</div>' +
       '</div>' +
       stats + verdict +
-      card('Priorities, highest impact first', list) +
-      card('Scorecard', watch) +
+      '<div class="advisor-cols" style="display:grid; grid-template-columns:minmax(0,1.9fr) minmax(0,1fr); gap:44px; align-items:start">' +
+      '<div>' + card('Priorities, highest impact first', list) + '</div>' +
+      '<div>' + subPanel + card('Scorecard', watch) + '</div>' +
+      '</div>' +
       '<div style="margin-top:26px; font-size:11px; color:' + C.muted + '; line-height:1.6; max-width:76ch">General information only, generated from the figures in this dashboard — not personal financial advice. Tax assumptions use a 39% marginal rate (incl. Medicare levy). Confirm anything material with your accountant or a licensed adviser.</div>' +
       '</div>';
   }
