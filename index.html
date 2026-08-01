@@ -896,6 +896,98 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
       );
     }
 
+    const SUB_STORE = "subs-v3";
+    const DEFAULT_SUBS = [
+      { id: 1,  name: "Medibank private health",  amount: 212.66, cycle: "monthly" },
+      { id: 2,  name: "Budget Direct insurance",  amount: 116.55, cycle: "monthly" },
+      { id: 3,  name: "Belong internet",          amount: 91.00,  cycle: "monthly" },
+      { id: 4,  name: "Fitness Passport",         amount: 62.20,  cycle: "fortnightly" },
+      { id: 5,  name: "Allianz insurance",        amount: 46.02,  cycle: "monthly" },
+      { id: 6,  name: "Anthropic Claude",         amount: 34.00,  cycle: "monthly" },
+      { id: 7,  name: "Spotify",                  amount: 22.99,  cycle: "monthly" },
+      { id: 9,  name: "PlayStation Plus",         amount: 12.95,  cycle: "monthly" },
+      { id: 10, name: "Amazon Prime",             amount: 9.99,   cycle: "monthly" },
+      { id: 11, name: "iCloud storage (Apple)",   amount: 4.49,   cycle: "monthly" },
+      { id: 12, name: "Prime Video ad-free",      amount: 2.99,   cycle: "monthly" },
+    ];
+    const CYCLE_MULT = { weekly: 52/12, fortnightly: 26/12, monthly: 1, quarterly: 1/3, annual: 1/12 };
+
+    function Subscriptions({ cardStyle, titleStyle, linkBtn, fmt }) {
+      const [subs, setSubs] = useState(DEFAULT_SUBS);
+      const [ready, setReady] = useState(false);
+      const [open, setOpen] = useState(true);
+
+      useEffect(() => {
+        try { const s = localStorage.getItem(SUB_STORE); if (s) setSubs(JSON.parse(s)); } catch {}
+        setReady(true);
+      }, []);
+      useEffect(() => {
+        if (!ready) return;
+        try { localStorage.setItem(SUB_STORE, JSON.stringify(subs)); } catch {}
+      }, [subs, ready]);
+
+      const monthlyOf = s => (parseFloat(s.amount) || 0) * (CYCLE_MULT[s.cycle] || 1);
+      const sorted = [...subs].sort((a, b) => monthlyOf(b) - monthlyOf(a));
+      const monthlyTotal = subs.reduce((t, s) => t + monthlyOf(s), 0);
+      const annualTotal = monthlyTotal * 12;
+      const max = sorted.length ? monthlyOf(sorted[0]) : 0;
+
+      const set = (id, field, val) => setSubs(p => p.map(s => s.id === id ? { ...s, [field]: field === "amount" ? val : val } : s));
+      const remove = id => setSubs(p => p.filter(s => s.id !== id));
+
+      const inputStyle = { background: "transparent", border: "none", borderBottom: "1px solid #332c27", color: "#ece7dd", fontFamily: "inherit", fontSize: 12.5, padding: "3px 0", width: "100%", outline: "none" };
+
+      return (
+        <div style={cardStyle}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+            <div style={{ ...titleStyle, marginBottom: 0 }}>Recurring subscriptions</div>
+            <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
+              <span style={{ fontSize: 11, color: "#999089" }}>{subs.length} active</span>
+              <button style={linkBtn} onClick={() => setOpen(v => !v)}>{open ? "Hide" : "Show"}</button>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", gap: 40, flexWrap: "wrap", marginTop: 16 }}>
+            <div>
+              <div style={{ fontSize: 10.5, color: "#999089", textTransform: "uppercase", letterSpacing: "0.12em" }}>Per month</div>
+              <div className="nr-figure" style={{ fontSize: 26, color: "#ece7dd", marginTop: 4 }}>{fmt(monthlyTotal)}</div>
+            </div>
+            <div>
+              <div style={{ fontSize: 10.5, color: "#999089", textTransform: "uppercase", letterSpacing: "0.12em" }}>Per year</div>
+              <div className="nr-figure" style={{ fontSize: 26, color: "#e0b44f", marginTop: 4 }}>{fmt(annualTotal)}</div>
+            </div>
+          </div>
+
+          {open && (
+            <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 2 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "minmax(120px,1.6fr) minmax(80px,100px) minmax(90px,110px) minmax(70px,90px) 24px", gap: 12, padding: "0 0 8px", fontSize: 10, color: "#999089", textTransform: "uppercase", letterSpacing: "0.12em", borderBottom: "1px solid #332c27" }}>
+                <span>Service</span><span style={{ textAlign: "right" }}>Amount</span><span>Billing</span><span style={{ textAlign: "right" }}>Per month</span><span></span>
+              </div>
+              {sorted.map(s => (
+                <div key={s.id} style={{ borderBottom: "1px solid #26201b", padding: "9px 0" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "minmax(120px,1.6fr) minmax(80px,100px) minmax(90px,110px) minmax(70px,90px) 24px", gap: 12, alignItems: "center" }}>
+                    <input style={inputStyle} value={s.name} onChange={e => set(s.id, "name", e.target.value)} />
+                    <input style={{ ...inputStyle, textAlign: "right", fontVariantNumeric: "tabular-nums" }} value={s.amount} onChange={e => set(s.id, "amount", e.target.value.replace(/[^0-9.]/g, ""))} />
+                    <select style={{ ...inputStyle, cursor: "pointer" }} value={s.cycle} onChange={e => set(s.id, "cycle", e.target.value)}>
+                      <option value="fortnightly" style={{ background: "#1d1713" }}>Fortnightly</option>
+                      <option value="monthly" style={{ background: "#1d1713" }}>Monthly</option>
+                      <option value="quarterly" style={{ background: "#1d1713" }}>Quarterly</option>
+                      <option value="annual" style={{ background: "#1d1713" }}>Annual</option>
+                    </select>
+                    <span className="nr-figure" style={{ fontSize: 14, color: "#ece7dd", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>{fmt(monthlyOf(s))}</span>
+                    <button onClick={() => remove(s.id)} title="Remove" style={{ background: "none", border: "none", color: "#7a716a", cursor: "pointer", fontSize: 15, lineHeight: 1, padding: 0 }}>×</button>
+                  </div>
+                  <div style={{ height: 3, background: "#26201b", marginTop: 8 }}>
+                    <div style={{ height: "100%", width: `${max ? (monthlyOf(s) / max) * 100 : 0}%`, background: "#8fa2f0" }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
     function CashflowTracker() {
       const [data, setData] = useState(INITIAL_DATA);
       const [selectedMonth, setSelectedMonth] = useState("Jul 2026");
@@ -1190,6 +1282,8 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
                 </BarChart>
               </ResponsiveContainer>
             </div>
+
+            <Subscriptions cardStyle={cardStyle} titleStyle={chartTitleStyle} linkBtn={linkBtn} fmt={fmt} />
 
             <div style={cardStyle}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4, flexWrap: "wrap", gap: 6 }}>
