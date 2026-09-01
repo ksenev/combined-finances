@@ -837,12 +837,20 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
         Notes: "Japan hotel via Booking.com $3,860 (429,721 JPY) + wedding vendor Courtney Lambert $875 in Holidays. Peter Jackson suits $1,675 at Brisbane Airport/DFO + Meshki/Iconic/Myer/Amazon in Shopping. Budget Direct annual premium $1,050 in Insurance. Royal Australian College fee $525 in Work. TMR rego ×2 $1,298 in Vehicle. Laser Clinics ×2 $510 in Beauty. Pearler $1,500 + BTC DCA $450 in Investing. 5× rent weeks."
       },
       "Jul 2026": {
-        Salary: 20353, "IP1 (net)": 2340, "Other income": 2874,
+        Salary: 23227, "IP1 (net)": 2340, "Other income": 0,
         "Mortgage repayments": 4264, Rent: 2880, Insurance: 375, Utilities: 235, Subscriptions: 95, "Gym/fitness": 187,
         Groceries: 1025, Fuel: 51, Health: 441, Vehicle: 299, Work: 0, "Parking/tolls/transport": 43,
         "Eating out": 340, Coffee: 55, Alcohol: 41, Shopping: 3540, Entertainment: 108,
         Holidays: 3525, "Gifts/donations": 0, "Beauty/hair/laser": 212, Investing: 1800,
-        Notes: "3-paycheck month for both jobs (fortnightly cycle landed 3× in July) — pushes Salary well above the usual run rate. Recurring SmartSalary + 623310*RP direct credits ($2,874 combined) parked in Other income pending confirmation of what these actually are — flag if that's wrong. Japan trip $2,017 (224,400 JPY) + wedding dress/alterations (Calily Bridal $545, Pia Jones $280, Stahar Creative $594, Sewed $50, AS Pinned $39) all in Holidays. Insurance = Allianz $46 + Budget Direct (car) $117 + Medibank PHI $213. 4× rent weeks. Pearler $1,500 + BTC DCA $300 in Investing."
+        Notes: "3-paycheck month for both jobs (fortnightly cycle landed 3× in July) — pushes Salary well above the usual run rate. Salary includes $2,874 of SmartSalary + 623310*RP salary-packaging credits (confirmed Sep 2026) — these are pre-tax salary redirected through the packaging provider, not separate income, so they sit in Salary rather than Other income. Japan trip $2,017 (224,400 JPY) + wedding dress/alterations (Calily Bridal $545, Pia Jones $280, Stahar Creative $594, Sewed $50, AS Pinned $39) all in Holidays. Insurance = Allianz $46 + Budget Direct (car) $117 + Medibank PHI $213. 4× rent weeks. Pearler $1,500 + BTC DCA $300 in Investing."
+      },
+      "Aug 2026": {
+        Salary: 15307, "IP1 (net)": 1709, "Other income": 289,
+        "Mortgage repayments": 4292, Rent: 2880, Insurance: 375, Utilities: 697, Subscriptions: 200, "Gym/fitness": 124,
+        Groceries: 865, Fuel: 145, Health: 252, Vehicle: 695, Work: 1102, "Parking/tolls/transport": 27,
+        "Eating out": 360, Coffee: 95, Alcohol: 73, Shopping: 10088, Entertainment: 122,
+        Holidays: 2950, "Gifts/donations": 142, "Beauty/hair/laser": 206, Investing: 1800,
+        Notes: "Back to a normal 2-paycheck month after July's 3× cycle. Shopping $10,088 is the outlier and almost entirely two purchases — The Hour Glass watch $7,650 and Tiffany & Co $1,130 (87% of the category); underlying retail run rate was ~$1,300. Work = AHPRA registration $1,102. Vehicle = Southeast Automotive service $695. Holidays is all wedding: celebrant Lara Wilkinson $900, Courtney Lambert $1,750, Bianca Allott deposit $200, Pia Jones $280, less Calily Bridal refund $189. Utilities includes 2× DEFT water bills $280 alongside Starcorp/Pearl/Belong. Salary includes $1,916 of SmartSalary + 623310*RP salary-packaging credits (×2 fortnights) — pre-tax salary via the packaging provider, so counted as Salary. Other income = R&W water reimbursement $140 + Medicare rebate $149. Excluded as pass-through: $1,500 in from Dad on 24/08 offset by $1,500 MoneyGram out on 28/08. 4× rent weeks. Pearler $1,500 + BTC DCA $300 in Investing."
       }
     };
 
@@ -1047,7 +1055,11 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
 
     function CashflowTracker() {
       const [data, setData] = useState(INITIAL_DATA);
-      const [selectedMonth, setSelectedMonth] = useState("Jul 2026");
+      // Always open on the most recent month in INITIAL_DATA — do not hardcode a month here,
+      // or every panel keyed off selectedMonth (Lifestyle spend, detail table, category pies)
+      // silently keeps showing last month's figures after a monthly update.
+      const LATEST_MONTH = Object.keys(INITIAL_DATA)[Object.keys(INITIAL_DATA).length - 1];
+      const [selectedMonth, setSelectedMonth] = useState(LATEST_MONTH);
       const [tab, setTab] = useState("overview");
       const [loaded, setLoaded] = useState(false);
       const [showAdd, setShowAdd] = useState(false);
@@ -1479,26 +1491,27 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
 // =====================================================================
 // DATA
 // =====================================================================
-const months = ['Jun-25','Jul-25','Aug-25','Sep-25','Oct-25','Nov-25','Dec-25','Jan-26','Feb-26','Mar-26','Apr-26','May-26','Jun-26','Jul-26'];
-const monthLabels = ['Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26','Apr 26','May 26','Jun 26','Jul 26'];
+const months = ['Jun-25','Jul-25','Aug-25','Sep-25','Oct-25','Nov-25','Dec-25','Jan-26','Feb-26','Mar-26','Apr-26','May-26','Jun-26','Jul-26','Aug-26'];
+const monthLabels = ['Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26','Apr 26','May 26','Jun 26','Jul 26','Aug 26'];
 
-const income = [0, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 3419.39, 2680, 3753.72, 2680];
+const income = [0, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 3419.39, 2680, 3753.72, 2680, 3140.00];
 
 // Mortgage repayments by month (from IE sheet; Jun=pre-settlement inspection only; Mar+ estimated)
-const mortgages = [0, 4181.90, 4172.25, 4056.19, 3944.80, 4058.67, 3983.79, 4068.63, 4132.63, 3920.58, 4322.45, 4281.84, 4472.92, 4263.50];
+const mortgages = [0, 4181.90, 4172.25, 4056.19, 3944.80, 4058.67, 3983.79, 4068.63, 4132.63, 3920.58, 4322.45, 4281.84, 4472.92, 4263.50, 4291.97];
 
 // Fixed other expenses (PM + body corp + insurance + admin + council)
 // Mar-26 (index 9): body corp charged quarterly $802.20 (Q2 Mar-May 2026, per PM Statement #9) instead of monthly $310.46
 // Apr-26 (index 10): light month — PM Statement #10 shows only PM Fee $276.35 + Admin $8.80 (no council/body corp/pest); income +$3,419.39 incl. 5-week rent run + $69.39 water reimbursement
 // May-26 (index 11): PM Statement #11 — PM Fee $221.08 + Admin $8.80 + pest spray $123.00 + council rates/water $1,068.29
-const fixedOther = [550, 975.16, 938.16, 938.16, 938.16, 938.16, 938.16, 938.16, 938.16, 1429.90, 337.75, 1421.17, 2016.24, 339.88];
+const fixedOther = [550, 975.16, 938.16, 938.16, 938.16, 938.16, 938.16, 938.16, 938.16, 1429.90, 337.75, 1421.17, 2016.24, 339.88, 1431.15];
 // Jul includes let fee $737 folded into IE total; Nov includes NBN $300
 // Jun-26 (index 12): PM Statement #12 — income $3,753.72 (arrears catchup + $73.72 water reimb); BC Q3 $1,318.87 (01/06-31/08/26) + Mgmt $303.57 + Lease Renewal $385.00 + Admin $8.80
 // Jul-26 (index 13): PM Statement #13 — light month, PM Fee $221.08 + Smoke Alarm Compliance (annual) $110.00 + Admin $8.80; rent increased $660→$700/wk from 4/07/26; tenants Olivia Sepecan & Paul Lorensini
+// Aug-26 (index 14): PM Statement #14 (3 Aug 2026) — income $3,140.00 (4 rent lines incl. two catch-up part payments at the new $700/wk rate); Redland City Council rates & water $1,163.33 + Mgmt Fee $259.02 + Admin $8.80 = $1,431.15; owner EFT $1,708.85 received 03/08
 
 // Actual total expenses from cashflow sheet
-const expensesActual = [550, 6157.06, 5110.41, 4994.35, 4882.96, 4996.83, 4921.95, 5006.79, 5070.79, 5350.48, 4660.20, 5703.01, 6489.16, 4603.38];
-const isProjected = [false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+const expensesActual = [550, 6157.06, 5110.41, 4994.35, 4882.96, 4996.83, 4921.95, 5006.79, 5070.79, 5350.48, 4660.20, 5703.01, 6489.16, 4603.38, 5723.12];
+const isProjected = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
 
 // Build expenses array (actual where available, estimated otherwise)
 const expenses = expensesActual.map((v, i) => v !== null ? v : (mortgages[i] + fixedOther[i]));
@@ -1510,7 +1523,7 @@ let running = 0;
 netCashflow.forEach(v => { running += v; cumulative.push(Math.round(running)); });
 
 // Totals (actual only = months 0-13, i.e. Jun 25 – Jul 26)
-const actualMonths = 14;
+const actualMonths = 15;
 const totalIncomeActual = income.slice(0, actualMonths).reduce((a,b) => a+b, 0);
 const totalExpensesActual = expenses.slice(0, actualMonths).reduce((a,b) => a+b, 0);
 const totalNetActual = totalIncomeActual - totalExpensesActual;
@@ -2151,6 +2164,58 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
           institution: "CommBank",
           accountName: "Everyday Offset",
           asOf: "2026-08-01",
+        },
+      },
+      {
+        date: "Aug 2026", timestamp: "2026-08-31", notes: "Pearler DCA continued ($1,500) — IVV +17 units, COIN holding steady at 2; Swyftx BTC +0.00467 via $300 DCA; Trezor BTC holding unchanged; Super and offset balances refreshed. Offset down ~$11.6k on the month — The Hour Glass watch $7,650 and Tiffany & Co $1,130 account for most of it.",
+        pearler: {
+          total: 26084,
+          holdings: [
+            { ticker: "IVV",    name: "iShares S&P 500 ETF",   units: 167,       value: 11929   },
+            { ticker: "VAS",    name: "Vanguard Aus Shares",    units: 64,        value: 7199    },
+            { ticker: "PMGOLD", name: "Gold",                   units: 63,        value: 3890    },
+            { ticker: "FANG",   name: "Global X FANG+ ETF",     units: 74,        value: 2643    },
+            { ticker: "COIN",   name: "Coinbase Global",        units: 2,         value: 424     },
+          ],
+        },
+        swyftx: {
+          total: 5522.52,
+          crypto: [
+            { asset: "BTC",   units: 0.03791,    value: 4161.00 },
+            { asset: "SOL",   units: 4.351,      value: 626.48  },
+            { asset: "ETH",   units: 0.1734,     value: 598.01  },
+            { asset: "FET",   units: 514,        value: 112.62  },
+            { asset: "TRUMP", units: 3.703,      value: 12.47   },
+            { asset: "ARKM",  units: 78.435,     value: 11.89   },
+            { asset: "LUNA",  units: 0.493,      value: 0.05    },
+          ],
+          fiat: 150,
+        },
+        trezor: {
+          total: 4868.90,
+          holdings: [{ asset: "BTC", units: 0.04439431, value: 4868.90 }],
+        },
+        super: {
+          total: 40392.59,
+          provider: "Hostplus",
+          option: "Indexed Balanced",
+          growthDefensive: "75% growth / 25% defensive",
+          asOf: "2026-09-01",
+          exposure: [
+            { asset: "Australian shares", pct: 30, color: "#7cc58c" },
+            { asset: "International shares (developed)", pct: 41, color: "#6aa9d6" },
+            { asset: "International shares (emerging)", pct: 4, color: "#b78ae8" },
+            { asset: "Bonds", pct: 20, color: "#b8845c" },
+            { asset: "Cash", pct: 5, color: "#e0b44f" },
+          ],
+        },
+        offsetCash: {
+          fullBalance: 54695.27,
+          ownershipPct: 50,
+          total: 27347.63,
+          institution: "CommBank",
+          accountName: "Everyday Offset",
+          asOf: "2026-09-01",
         },
       },
     ];
