@@ -859,6 +859,14 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
         "Eating out": 1230, Coffee: 100, Alcohol: 47, Shopping: 1519, Entertainment: 0,
         Holidays: 40825, "Gifts/donations": 50, "Beauty/hair/laser": 750, Investing: 1800,
         Notes: "WEDDING MONTH (23 Sep) — both Holidays and Other income are one-off spikes; expect the 6-month CSP averages to look distorted until Mar 2027. Holidays $40,825 = wedding ~$35.7k (Gabbinbar Homestead $21,268 less $585 Prethink refund, Toowoomba White Weddings $6,411, Renee Green Creative $2,600, Shelly Mehra $1,747, Fusion Events DJ $1,329, Bianca Allott $1,250, Louismarie Lelo $875, Pia Jones $280, Sweet Philosophy $230, stationery Officeworks/Vistaprint/Etsy $249, Di Yao heels $90) + honeymoon/Sri Lanka travel ~$5.1k (Airbnb $2,385, JR West/Shinkansen $711, Klook, Changi duty free, Colombo spend). Other income $34,642 = wedding gifts $28,116 (cash deposit $12,850, parents $15,000 incl. $5k + $3k via xx9702 and $7k 'Dad wedding money', friends $266) + ATO refund $6,376 + $150 rebate. Shopping is net of $600 reimbursed by parents for the robot vacuum bought for them (Amazon $549). Work = AHPRA $1,102 (second AHPRA charge after Aug). Salary includes $1,916 SmartSalary + 623310*RP packaging credits (×2). 5× rent weeks. Pearler $1,500 + BTC DCA $300 in Investing."
+      },
+      "Oct 2026": {
+        Salary: 14707, "IP1 (net)": 2744, "Other income": 6000,
+        "Mortgage repayments": 4336, Rent: 2880, Insurance: 375, Utilities: 335, Subscriptions: 54, "Gym/fitness": 124,
+        Groceries: 255, Fuel: 0, Health: 455, Vehicle: 66, Work: 0, "Parking/tolls/transport": 66,
+        "Eating out": 172, Coffee: 23, Alcohol: 0, Shopping: 4180, Entertainment: 0,
+        Holidays: 5920, "Gifts/donations": 0, "Beauty/hair/laser": 0, Investing: 1650,
+        Notes: "Japan honeymoon month (also Sri Lanka 1–7 Oct). Holidays $5,920 = all Japan/Sri Lanka card spend except shopping-type merchants and Coles, plus Booking.com $727, Kabin Taka $759 + $22, Shangri-La Colombo ~$1.2k, $200 Sol house holiday share, $213 Dept of Home Affairs (assumed travel-admin — reclassify if wrong). Shopping $4,180 is mostly Ginza Six $2,686 + Seiko $601 + Longchamp $239 + Apple Ginza $153 + Myer $82 + Tokyo retail. Insurance $375 = Medibank $213 + Budget Direct $117 + Allianz $46. Salary includes $1,916 SmartSalary + 623310*RP packaging credits (x2). Other income = $6,000 tax return transfer (xx9702, 2 Oct); the $440 xx9702 transfer on 13 Oct and $300 Swyftx payout on 5 Oct treated as internal/transfers. 4x rent weeks. Investing = Pearler $1,500 ($600 + $900) + BTC DCA $150. Card repayments (xx2268 transfers) ignored as internal."
       }
     };
 
@@ -1499,28 +1507,30 @@ document.querySelectorAll('.shell-tab').forEach(function(tab){
 // =====================================================================
 // DATA
 // =====================================================================
-const months = ['Jun-25','Jul-25','Aug-25','Sep-25','Oct-25','Nov-25','Dec-25','Jan-26','Feb-26','Mar-26','Apr-26','May-26','Jun-26','Jul-26','Aug-26','Sep-26'];
-const monthLabels = ['Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26','Apr 26','May 26','Jun 26','Jul 26','Aug 26','Sep 26'];
+const months = ['Jun-25','Jul-25','Aug-25','Sep-25','Oct-25','Nov-25','Dec-25','Jan-26','Feb-26','Mar-26','Apr-26','May-26','Jun-26','Jul-26','Aug-26','Sep-26', 'Oct-26'];
+const monthLabels = ['Jun 25','Jul 25','Aug 25','Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26','Apr 26','May 26','Jun 26','Jul 26','Aug 26','Sep 26', 'Oct 26'];
 
-const income = [0, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 3419.39, 2680, 3753.72, 2680, 3140.00, 2695.63];
+const income = [0, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 2680, 3419.39, 2680, 3753.72, 2680, 3140.00, 2695.63, 3000.00];
 
 // Mortgage repayments by month (from IE sheet; Jun=pre-settlement inspection only; Mar+ estimated)
-const mortgages = [0, 4181.90, 4172.25, 4056.19, 3944.80, 4058.67, 3983.79, 4068.63, 4132.63, 3920.58, 4322.45, 4281.84, 4472.92, 4263.50, 4291.97, 4405.08];
+const mortgages = [0, 4181.90, 4172.25, 4056.19, 3944.80, 4058.67, 3983.79, 4068.63, 4132.63, 3920.58, 4322.45, 4281.84, 4472.92, 4263.50, 4291.97, 4405.08, 4336.35];
 
 // Fixed other expenses (PM + body corp + insurance + admin + council)
 // Mar-26 (index 9): body corp charged quarterly $802.20 (Q2 Mar-May 2026, per PM Statement #9) instead of monthly $310.46
 // Apr-26 (index 10): light month — PM Statement #10 shows only PM Fee $276.35 + Admin $8.80 (no council/body corp/pest); income +$3,419.39 incl. 5-week rent run + $69.39 water reimbursement
 // May-26 (index 11): PM Statement #11 — PM Fee $221.08 + Admin $8.80 + pest spray $123.00 + council rates/water $1,068.29
-const fixedOther = [550, 975.16, 938.16, 938.16, 938.16, 938.16, 938.16, 938.16, 938.16, 1429.90, 337.75, 1421.17, 2016.24, 339.88, 1431.15, 1027.62];
+const fixedOther = [550, 975.16, 938.16, 938.16, 938.16, 938.16, 938.16, 938.16, 938.16, 1429.90, 337.75, 1421.17, 2016.24, 339.88, 1431.15, 1027.62, 256.30];
 // Jul includes let fee $737 folded into IE total; Nov includes NBN $300
 // Jun-26 (index 12): PM Statement #12 — income $3,753.72 (arrears catchup + $73.72 water reimb); BC Q3 $1,318.87 (01/06-31/08/26) + Mgmt $303.57 + Lease Renewal $385.00 + Admin $8.80
 // Jul-26 (index 13): PM Statement #13 — light month, PM Fee $221.08 + Smoke Alarm Compliance (annual) $110.00 + Admin $8.80; rent increased $660→$700/wk from 4/07/26; tenants Olivia Sepecan & Paul Lorensini
 // Aug-26 (index 14): PM Statement #14 (3 Aug 2026) — income $3,140.00 (4 rent lines incl. two catch-up part payments at the new $700/wk rate); Redland City Council rates & water $1,163.33 + Mgmt Fee $259.02 + Admin $8.80 = $1,431.15; owner EFT $1,708.85 received 03/08
 // Sep-26 (index 15): PM Statement #15 (1 Sep 2026) — income $2,695.63 (rent to 1/09 incl. $500 part-payment catch-up + $69.92 water reimb); Body Corp Q4 $802.20 (01/09-30/11/26) + Mgmt $216.62 + Admin $8.80 = $1,027.62; owner EFT $1,668.01 received 01/09. Loans: $3,158.08 + $1,247.00 = $4,405.08 (28/09)
 
+// Oct-26 (index 16): PM Statement #16 (1 Oct 2026) — income $3,000.00 (rent to 1/10: $900 + $700 + $700 + $600 + $100 catch-up lines); Mgmt Fee $247.50 + Admin $8.80 = $256.30; owner EFT $2,743.70 received 01/10. Loans: $3,089.35 (27/10) + $1,247.00 (26/10) = $4,336.35
+
 // Actual total expenses from cashflow sheet
-const expensesActual = [550, 6157.06, 5110.41, 4994.35, 4882.96, 4996.83, 4921.95, 5006.79, 5070.79, 5350.48, 4660.20, 5703.01, 6489.16, 4603.38, 5723.12, 5432.70];
-const isProjected = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+const expensesActual = [550, 6157.06, 5110.41, 4994.35, 4882.96, 4996.83, 4921.95, 5006.79, 5070.79, 5350.48, 4660.20, 5703.01, 6489.16, 4603.38, 5723.12, 5432.70, 4592.65];
+const isProjected = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false, false];
 
 // Build expenses array (actual where available, estimated otherwise)
 const expenses = expensesActual.map((v, i) => v !== null ? v : (mortgages[i] + fixedOther[i]));
@@ -1532,7 +1542,7 @@ let running = 0;
 netCashflow.forEach(v => { running += v; cumulative.push(Math.round(running)); });
 
 // Totals (actual only = months 0-13, i.e. Jun 25 – Jul 26)
-const actualMonths = 16;
+const actualMonths = 17;
 const totalIncomeActual = income.slice(0, actualMonths).reduce((a,b) => a+b, 0);
 const totalExpensesActual = expenses.slice(0, actualMonths).reduce((a,b) => a+b, 0);
 const totalNetActual = totalIncomeActual - totalExpensesActual;
@@ -2274,6 +2284,55 @@ document.querySelectorAll('#panel-property [data-ip-tab]').forEach(function(el){
           institution: "CommBank",
           accountName: "Everyday Offset",
           asOf: "2026-10-01",
+        },
+      },
+      {
+        date: "Oct 2026", timestamp: "2026-10-31", notes: "Honeymoon month. Pearler transfers $1,500 ($600 on 7 Oct + $900 on 16 Oct) but unit counts are unchanged from Sep (IVV 167 / VAS 76 / PMGOLD 63 / FANG 74 / COIN 2) — the cash may be uninvested or orders pending, check Pearler. Swyftx/wallet BTC DCA $150 (units now read directly: 0.03927 BTC); $300 AUD payout received 5 Oct. 'Other' = FET + ARKM + TRUMP (FET -84%, ARKM -95%, TRUMP -98% vs cost). Trezor BTC unchanged at 0.04439431. Super $42,298.11 (+$629 vs Sep). Offset $52,022.25 (50% = $26,011.13) despite the Japan spend, helped by $6k tax return. Screenshots taken 1 Nov.",
+        pearler: {
+          total: 26910,
+          holdings: [
+            { ticker: "IVV",    name: "iShares S&P 500 ETF",   units: 167,       value: 12077   },
+            { ticker: "VAS",    name: "Vanguard Aus Shares",    units: 76,        value: 8362    },
+            { ticker: "PMGOLD", name: "Gold",                   units: 63,        value: 3560    },
+            { ticker: "FANG",   name: "Global X FANG+ ETF",     units: 74,        value: 2554    },
+            { ticker: "COIN",   name: "Coinbase Global",        units: 2,         value: 357     },
+          ],
+        },
+        swyftx: {
+          total: 5620.23,
+          crypto: [
+            { asset: "BTC",   units: 0.03927,    value: 4334.02 },
+            { asset: "SOL",   units: 4.351,      value: 592.04  },
+            { asset: "ETH",   units: 0.1734,     value: 556.64  },
+            { asset: "Other", units: 0,          value: 137.53  },
+          ],
+          fiat: 0,
+        },
+        trezor: {
+          total: 4899.84,
+          holdings: [{ asset: "BTC", units: 0.04439431, value: 4899.84 }],
+        },
+        super: {
+          total: 42298.11,
+          provider: "Hostplus",
+          option: "Indexed Balanced",
+          growthDefensive: "75% growth / 25% defensive",
+          asOf: "2026-11-01",
+          exposure: [
+            { asset: "Australian shares", pct: 30, color: "#7cc58c" },
+            { asset: "International shares (developed)", pct: 41, color: "#6aa9d6" },
+            { asset: "International shares (emerging)", pct: 4, color: "#b78ae8" },
+            { asset: "Bonds", pct: 20, color: "#b8845c" },
+            { asset: "Cash", pct: 5, color: "#e0b44f" },
+          ],
+        },
+        offsetCash: {
+          fullBalance: 52022.25,
+          ownershipPct: 50,
+          total: 26011.13,
+          institution: "CommBank",
+          accountName: "Everyday Offset",
+          asOf: "2026-11-01",
         },
       },
     ];
